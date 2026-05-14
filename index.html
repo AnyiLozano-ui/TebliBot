@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabliBot IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <header>
+            <h1>TabliBot IA</h1>
+            <p>Aprende las tablas de multiplicar jugando</p>
+        </header>
+
+        <section class="card">
+            <div class="bot">🤖</div>
+            <h2 id="mensajeIA">Hola, soy TabliBot. Escoge una tabla para comenzar.</h2>
+
+            <label for="tabla">Elige una tabla:</label>
+            <select id="tabla">
+        <option value="2">Tabla del 2</option>
+        <option value="3">Tabla del 3</option>
+        <option value="4">Tabla del 4</option>
+        <option value="5">Tabla del 5</option>
+        <option value="6">Tabla del 6</option>
+        <option value="7">Tabla del 7</option>
+        <option value="8">Tabla del 8</option>
+        <option value="9">Tabla del 9</option>
+      </select>
+
+            <button onclick="iniciarJuego()">Comenzar</button>
+        </section>
+
+        <section class="card juego">
+            <h2 id="pregunta">Ejemplo: 2 × 4 = 8</h2>
+
+            <button onclick="explicarConVoz()">🤖 Explicarme con voz</button>
+
+            <div id="opciones" class="opciones"></div>
+
+            <p id="resultado"></p>
+            <p>Puntaje: <span id="puntaje">0</span></p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
