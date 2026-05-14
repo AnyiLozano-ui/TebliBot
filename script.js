@@ -15,7 +15,8 @@ function iniciarJuego() {
 
     hablar(
         'Hola, soy TabliBot. Vamos a practicar la tabla del ' +
-        tablaSeleccionada,
+        tablaSeleccionada + '. ' +
+        'Intenta responder, y si necesitas ayuda, presiona el botón de explicarme por vos.',
         0.75,
     )
 }
@@ -37,9 +38,12 @@ function generarOpciones() {
     let opciones = [respuestaCorrecta]
 
     while (opciones.length < 4) {
-        let opcion = Math.floor(Math.random() * 90) + 1
+        // Generar opciones cercanas a la respuesta correcta
+        let variacion = (Math.floor(Math.random() * 20) - 10) * tablaSeleccionada
+        let opcion = respuestaCorrecta + variacion
 
-        if (!opciones.includes(opcion)) {
+        // Asegurar que la opción sea positiva y diferente a las existentes
+        if (opcion > 0 && !opciones.includes(opcion)) {
             opciones.push(opcion)
         }
     }
@@ -56,6 +60,10 @@ function generarOpciones() {
 
 function validarRespuesta(opcion) {
     const resultado = document.getElementById('resultado')
+    const botones = document.querySelectorAll('.opciones button')
+
+    // Desactivar todos los botones mientras se procesa la respuesta
+    botones.forEach(btn => btn.disabled = true)
 
     if (opcion === respuestaCorrecta) {
         puntaje++
@@ -68,6 +76,14 @@ function validarRespuesta(opcion) {
 
         document.getElementById('puntaje').textContent = puntaje
 
+        // Resaltar el botón correcto
+        botones.forEach(btn => {
+            if (parseInt(btn.textContent) === respuestaCorrecta) {
+                btn.style.background = '#22c55e'
+                btn.style.transform = 'scale(1.1)'
+            }
+        })
+
         hablar(
             '¡Es correcto! Muy bien, la respuesta es ' +
             respuestaCorrecta +
@@ -75,7 +91,15 @@ function validarRespuesta(opcion) {
             0.75,
         )
 
-        setTimeout(generarPregunta, 1800)
+        // Esperar a que termine el audio antes de cambiar de pregunta
+        setTimeout(() => {
+            botones.forEach(btn => {
+                btn.style.background = ''
+                btn.style.transform = ''
+            })
+            generarPregunta()
+            botones.forEach(btn => btn.disabled = false)
+        }, 4000)
     } else {
         resultado.textContent = 'Casi lo logras. Inténtalo otra vez.'
         resultado.style.color = 'orange'
@@ -97,6 +121,11 @@ function validarRespuesta(opcion) {
             ' veces.',
             0.75,
         )
+
+        // Re-habilitar los botones después del mensaje de error
+        setTimeout(() => {
+            botones.forEach(btn => btn.disabled = false)
+        }, 3000)
     }
 }
 
@@ -128,64 +157,10 @@ function hablar(texto, velocidad = 0.6) {
 
 function explicarConVoz() {
     let explicacion =
-        'Vamos a resolverlo paso a paso. ' +
-        tablaSeleccionada +
-        ' por ' +
-        numeroAleatorio +
-        ' significa sumar ' +
-        tablaSeleccionada +
-        ' un total de ' +
-        numeroAleatorio +
-        ' veces. '
+        'Vamos a resolver: ' + tablaSeleccionada + ' × ' + numeroAleatorio + ' es igual a ' + respuestaCorrecta + '. ' +
+        'Ahora elige la respuesta correcta.'
 
-    let suma = ''
-
-    for (let i = 1; i <= numeroAleatorio; i++) {
-        suma += tablaSeleccionada
-
-        if (i < numeroAleatorio) {
-            suma += ' más '
-        }
-    }
-
-    explicacion += 'Vamos despacio. '
-
-    for (let i = 1; i <= numeroAleatorio; i++) {
-        explicacion += tablaSeleccionada
-
-        if (i < numeroAleatorio) {
-            explicacion += ' ... más ... '
-        }
-    }
-
-    explicacion += '. '
-
-    explicacion += 'Ahora contemos juntos. '
-
-    let acumulado = 0
-
-    for (let i = 1; i <= numeroAleatorio; i++) {
-        acumulado += tablaSeleccionada
-
-        explicacion +=
-            'Si agregamos ' +
-            tablaSeleccionada +
-            ', ahora tenemos ' +
-            acumulado +
-            '. '
-    }
-
-    explicacion +=
-        'Entonces la respuesta correcta es ' + respuestaCorrecta + '. '
-
-    explicacion +=
-        'Piensa que tienes ' +
-        numeroAleatorio +
-        ' cajas, y en cada caja hay ' +
-        tablaSeleccionada +
-        ' dulces. '
-
-    explicacion += 'Ahora mira las opciones y escoge la respuesta correcta.'
-    document.getElementById('mensajeIA').textContent = explicacion
-    hablar(explicacion, 0.7)
+    // Solo hablar, sin mostrar el texto en pantalla
+    hablar(explicacion, 0.75)
 }
+

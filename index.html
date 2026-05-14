@@ -21,7 +21,7 @@
             <h2 id="mensajeIA">Hola, soy TabliBot. Escoge una tabla para comenzar.</h2>
 
             <label for="tabla">Elige una tabla:</label>
-            <select id="tabla">
+            <select id="tabla" onchange="iniciarJuego()">
         <option value="2">Tabla del 2</option>
         <option value="3">Tabla del 3</option>
         <option value="4">Tabla del 4</option>
@@ -31,8 +31,6 @@
         <option value="8">Tabla del 8</option>
         <option value="9">Tabla del 9</option>
       </select>
-
-            <button onclick="iniciarJuego()">Comenzar</button>
         </section>
 
         <section class="card juego">
