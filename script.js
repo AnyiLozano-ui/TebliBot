@@ -6,23 +6,27 @@ let puntaje = 0
 function iniciarJuego() {
     tablaSeleccionada = parseInt(document.getElementById('tabla').value)
 
-    document.getElementById('mensajeIA').textContent =
-        'Muy bien, vamos a practicar la tabla del ' + tablaSeleccionada
-
     document.getElementById('resultado').textContent = ''
 
     generarPregunta()
 
     hablar(
-        'Hola, soy TabliBot. Vamos a practicar la tabla del ' +
-        tablaSeleccionada + '. ' +
-        'Intenta responder, y si necesitas ayuda, presiona el botón de explicarme por vos.',
-        0.75,
+        'Hola, soy la Profesora Lupita. Vengo para que practiquemos las tablas de multiplicar desde el nivel más bajo al más alto. ' +
+        'Has seleccionado la tabla del ' + tablaSeleccionada + '. ' +
+        'Si sabes la respuesta, selecciónala. Si necesitas ayuda, presiona el botón de explicarme por vos.',
+        0.7,
     )
 }
 
 function generarPregunta() {
-    numeroAleatorio = Math.floor(Math.random() * 10) + 1
+    let nuevoNumero = numeroAleatorio
+
+    // Generar un número diferente al anterior
+    while (nuevoNumero === numeroAleatorio) {
+        nuevoNumero = Math.floor(Math.random() * 10) + 1
+    }
+
+    numeroAleatorio = nuevoNumero
     respuestaCorrecta = tablaSeleccionada * numeroAleatorio
 
     document.getElementById('pregunta').textContent =
@@ -71,9 +75,6 @@ function validarRespuesta(opcion) {
         resultado.textContent = '¡Es correcto!'
         resultado.style.color = 'green'
 
-        document.getElementById('mensajeIA').textContent =
-            '¡Es correcto! Muy bien, la respuesta es ' + respuestaCorrecta + '.'
-
         document.getElementById('puntaje').textContent = puntaje
 
         // Resaltar el botón correcto
@@ -85,10 +86,10 @@ function validarRespuesta(opcion) {
         })
 
         hablar(
-            '¡Es correcto! Muy bien, la respuesta es ' +
+            '¡Excelente! ¡Lo hiciste muy bien! La respuesta es ' +
             respuestaCorrecta +
             '.',
-            0.75,
+            0.7,
         )
 
         // Esperar a que termine el audio antes de cambiar de pregunta
@@ -99,33 +100,20 @@ function validarRespuesta(opcion) {
             })
             generarPregunta()
             botones.forEach(btn => btn.disabled = false)
-        }, 4000)
+        }, 6000)
     } else {
-        resultado.textContent = 'Casi lo logras. Inténtalo otra vez.'
+        resultado.textContent = 'Respuesta incorrecta. Intenta de nuevo.'
         resultado.style.color = 'orange'
 
-        document.getElementById('mensajeIA').textContent =
-            'Pista: suma ' +
-            tablaSeleccionada +
-            ' varias veces hasta llegar al resultado.'
-
         hablar(
-            'Casi lo logras. Vamos a pensarlo juntos. ' +
-            tablaSeleccionada +
-            ' por ' +
-            numeroAleatorio +
-            ' significa sumar ' +
-            tablaSeleccionada +
-            ' un total de ' +
-            numeroAleatorio +
-            ' veces.',
-            0.75,
+            'Intenta de nuevo.',
+            0.7,
         )
 
         // Re-habilitar los botones después del mensaje de error
         setTimeout(() => {
             botones.forEach(btn => btn.disabled = false)
-        }, 3000)
+        }, 5000)
     }
 }
 
@@ -157,10 +145,10 @@ function hablar(texto, velocidad = 0.6) {
 
 function explicarConVoz() {
     let explicacion =
-        'Vamos a resolver: ' + tablaSeleccionada + ' × ' + numeroAleatorio + ' es igual a ' + respuestaCorrecta + '. ' +
+        'Escúchame bien: ' + tablaSeleccionada + ' × ' + numeroAleatorio + ' es igual a ' + respuestaCorrecta + '. ' +
         'Ahora elige la respuesta correcta.'
 
     // Solo hablar, sin mostrar el texto en pantalla
-    hablar(explicacion, 0.75)
+    hablar(explicacion, 0.7)
 }
 
