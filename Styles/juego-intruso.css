@@ -489,28 +489,502 @@ body {
     font-size: 0.95rem;
 }
 
-@media (max-width: 380px) {
-    .header h1 {
-        font-size: 1.35rem;
+/* Mobile - Pantallas pequeñas */
+@media (max-width: 480px) {
+    .game {
+        width: min(100vw, 430px);
     }
+
+    .content {
+        padding: 12px 10px;
+    }
+
+    .back {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+        top: 12px;
+        left: 12px;
+    }
+
+    .header {
+        margin-top: 40px;
+        padding: 12px;
+    }
+
     .header img {
-        width: 68px;
-        height: 68px;
+        width: 60px;
+        height: 60px;
     }
-    .instruction-card h2 {
-        font-size: 1.35rem;
-    }
-    .intruder-card {
-        min-height: 105px;
+
+    .header h1 {
         font-size: 1.2rem;
     }
-    .stats-container {
-        gap: 8px;
+
+    .header p {
+        font-size: 0.8rem;
     }
+
+    .stats-container {
+        gap: 6px;
+        margin-top: 10px;
+    }
+
     .lives-box,
     .score-box,
     .streak-box {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         padding: 8px 10px;
+        border-radius: 16px;
+    }
+
+    .timer-container {
+        margin-top: 8px;
+    }
+
+    .timer-text {
+        font-size: 0.8rem;
+    }
+
+    .instruction-card {
+        margin-top: 10px;
+        padding: 12px 12px;
+    }
+
+    .instruction-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .instruction-card p {
+        font-size: 0.8rem;
+    }
+
+    .cards-grid {
+        margin-top: 16px;
+        gap: 12px;
+    }
+
+    .intruder-card {
+        min-height: 100px;
+        font-size: 1.1rem;
+    }
+
+    .message {
+        font-size: 0.9rem;
+        margin-top: 14px;
+    }
+
+    .next-btn {
+        width: 90%;
+        max-width: 300px;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .modal-content {
+        padding: 20px 16px;
+        max-width: 260px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .final-stats {
+        gap: 8px;
+    }
+
+    .stat p {
+        font-size: 0.7rem;
+    }
+
+    .stat h3 {
+        font-size: 1.4rem;
+    }
+
+    .restart-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .back-menu-btn {
+        font-size: 0.85rem;
+    }
+}
+
+/* Tablet/iPad */
+@media (min-width: 481px) and (max-width: 768px) {
+    .game {
+        width: min(100vw, 450px);
+    }
+
+    .content {
+        padding: 14px 12px;
+    }
+
+    .back {
+        width: 45px;
+        height: 45px;
+        font-size: 1.7rem;
+        top: 14px;
+        left: 14px;
+    }
+
+    .header {
+        margin-top: 48px;
+        padding: 14px;
+    }
+
+    .header img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .stats-container {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .lives-box,
+    .score-box,
+    .streak-box {
+        font-size: 0.85rem;
+        padding: 9px 12px;
+        border-radius: 18px;
+    }
+
+    .timer-container {
+        margin-top: 10px;
+    }
+
+    .timer-text {
+        font-size: 0.9rem;
+    }
+
+    .instruction-card {
+        margin-top: 14px;
+        padding: 16px 14px;
+    }
+
+    .instruction-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .instruction-card p {
+        font-size: 0.9rem;
+    }
+
+    .cards-grid {
+        margin-top: 18px;
+        gap: 14px;
+    }
+
+    .intruder-card {
+        min-height: 110px;
+        font-size: 1.2rem;
+    }
+
+    .message {
+        font-size: 1rem;
+        margin-top: 16px;
+    }
+
+    .next-btn {
+        width: 88%;
+        max-width: 320px;
+        padding: 13px 18px;
+        font-size: 1rem;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .modal-content {
+        padding: 28px 20px;
+        max-width: 290px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .final-stats {
+        gap: 10px;
+    }
+
+    .stat p {
+        font-size: 0.8rem;
+    }
+
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+
+    .restart-btn {
+        padding: 13px;
+        font-size: 0.95rem;
+    }
+
+    .back-menu-btn {
+        font-size: 0.9rem;
+    }
+}
+
+/* iPad Grande */
+@media (min-width: 769px) {
+    .game {
+        width: min(100vw, 500px);
+        max-width: 500px;
+    }
+
+    .content {
+        padding: 18px 14px;
+    }
+
+    .back {
+        width: 48px;
+        height: 48px;
+        font-size: 1.8rem;
+        top: 16px;
+        left: 16px;
+    }
+
+    .header {
+        margin-top: 52px;
+        padding: 16px;
+    }
+
+    .header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    .header p {
+        font-size: 0.95rem;
+    }
+
+    .stats-container {
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .lives-box,
+    .score-box,
+    .streak-box {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+        border-radius: 20px;
+    }
+
+    .timer-container {
+        margin-top: 12px;
+    }
+
+    .timer-text {
+        font-size: 0.95rem;
+    }
+
+    .instruction-card {
+        margin-top: 16px;
+        padding: 18px 16px;
+    }
+
+    .instruction-card h2 {
+        font-size: 1.7rem;
+    }
+
+    .instruction-card p {
+        font-size: 0.95rem;
+    }
+
+    .cards-grid {
+        margin-top: 20px;
+        gap: 16px;
+    }
+
+    .intruder-card {
+        min-height: 120px;
+        font-size: 1.35rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
+        margin-top: 18px;
+    }
+
+    .next-btn {
+        width: 86%;
+        max-width: 340px;
+        padding: 15px 20px;
+        font-size: 1.05rem;
+        margin-top: 14px;
+        margin-bottom: 14px;
+    }
+
+    .modal-content {
+        padding: 32px 24px;
+        max-width: 320px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .final-stats {
+        gap: 12px;
+    }
+
+    .stat p {
+        font-size: 0.85rem;
+    }
+
+    .stat h3 {
+        font-size: 1.7rem;
+    }
+
+    .restart-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .back-menu-btn {
+        font-size: 0.95rem;
+    }
+}
+
+/* Landscape mode */
+@media (max-height: 500px) {
+    .content {
+        padding: 10px 8px;
+    }
+
+    .back {
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+        top: 10px;
+        left: 10px;
+    }
+
+    .header {
+        margin-top: 20px;
+        padding: 8px;
+    }
+
+    .header img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header h1 {
+        font-size: 1rem;
+    }
+
+    .header p {
+        font-size: 0.7rem;
+    }
+
+    .stats-container {
+        gap: 4px;
+        margin-top: 6px;
+    }
+
+    .lives-box,
+    .score-box,
+    .streak-box {
+        font-size: 0.7rem;
+        padding: 6px 8px;
+        border-radius: 14px;
+    }
+
+    .timer-container {
+        margin-top: 4px;
+    }
+
+    .timer-text {
+        font-size: 0.7rem;
+    }
+
+    .instruction-card {
+        margin-top: 6px;
+        padding: 8px 10px;
+    }
+
+    .instruction-card h2 {
+        font-size: 1rem;
+    }
+
+    .instruction-card p {
+        font-size: 0.7rem;
+    }
+
+    .cards-grid {
+        margin-top: 10px;
+        gap: 8px;
+    }
+
+    .intruder-card {
+        min-height: 80px;
+        font-size: 0.9rem;
+    }
+
+    .message {
+        font-size: 0.8rem;
+        margin-top: 6px;
+        min-height: 20px;
+    }
+
+    .next-btn {
+        width: 90%;
+        max-width: 280px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+    .modal-content {
+        padding: 18px 14px;
+        max-width: 240px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+
+    .final-stats {
+        gap: 6px;
+    }
+
+    .stat p {
+        font-size: 0.65rem;
+    }
+
+    .stat h3 {
+        font-size: 1.2rem;
+    }
+
+    .restart-btn {
+        padding: 10px;
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .back-menu-btn {
+        font-size: 0.75rem;
     }
 }
