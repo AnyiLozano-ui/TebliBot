@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo Matemático</title>
+    <link rel="stylesheet" href="./Styles/juego-semaforo.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondodesafios.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="desafios.html" class="back">←</a>
+
+            <div class="header">
+                <div class="traffic-light">
+                    <span class="red" id="redLight"></span>
+                    <span class="yellow" id="yellowLight"></span>
+                    <span class="green" id="greenLight"></span>
+                </div>
+
+                <div>
+                    <h1>Semáforo matemático</h1>
+                    <p>Decide si está correcto o incorrecto</p>
+                </div>
+            </div>
+
+            <div class="score-box">
+                ⭐ Puntaje: <span id="score">0</span>
+            </div>
+
+            <div class="combo-box" id="comboBox" style="display: none;">
+                🔥 ¡Racha!
+            </div>
+
+            <div class="timer-box">
+                ⏱ Tiempo: <span id="timer">5</span>
+            </div>
+
+            <div class="operation-card">
+                <p>Observa rápido:</p>
+                <h2 id="operation">4 × 2 = 8</h2>
+            </div>
+
+            <div class="buttons">
+                <button class="btn correct-btn" id="correctBtn">
+        ✅ Correcto
+      </button>
+
+                <button class="btn wrong-btn" id="wrongBtn">
+        ❌ Incorrecto
+      </button>
+            </div>
+
+            <p class="message" id="message">
+                Mira bien y responde 😊
+            </p>
+
+            <button class="next-btn" id="nextBtn">
+      Siguiente reto 🚀
+    </button>
+
+        </section>
+
+    </main>
+
+    <audio id="successSound" src="./sonidos/correcto.wav"></audio>
+    <audio id="wrongSound" src="./sonidos/incorrecto.wav"></audio>
+
+    <script src="./js/juego-semaforo.js"></script>
+
+</body>
+
+</html>
