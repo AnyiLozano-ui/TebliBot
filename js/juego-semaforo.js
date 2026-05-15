@@ -249,7 +249,7 @@ function createHappyStars(element) {
     const rect = element.getBoundingClientRect()
     const gameRect = document.querySelector('.game').getBoundingClientRect()
 
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 35; i++) {
         const star = document.createElement('span')
 
         star.classList.add('happy-star')
@@ -257,14 +257,18 @@ function createHappyStars(element) {
         star.style.left = `${rect.left - gameRect.left + rect.width / 2}px`
         star.style.top = `${rect.top - gameRect.top + rect.height / 2}px`
 
-        star.style.setProperty('--x', `${Math.random() * 260 - 130}px`)
-        star.style.setProperty('--y', `${Math.random() * 260 - 130}px`)
+        star.style.setProperty('--x', `${Math.random() * 380 - 190}px`)
+        star.style.setProperty('--y', `${Math.random() * 380 - 190}px`)
 
         document.querySelector('.game').appendChild(star)
 
         setTimeout(() => {
             star.remove()
-        }, 900)
+        }, 1200)
+    }
+
+    if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100])
     }
 }
 
@@ -272,7 +276,7 @@ function createSadParticles(element) {
     const rect = element.getBoundingClientRect()
     const gameRect = document.querySelector('.game').getBoundingClientRect()
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 20; i++) {
         const particle = document.createElement('span')
 
         particle.classList.add('sad-particle')
@@ -280,14 +284,18 @@ function createSadParticles(element) {
         particle.style.left = `${rect.left - gameRect.left + rect.width / 2}px`
         particle.style.top = `${rect.top - gameRect.top + rect.height / 2}px`
 
-        particle.style.setProperty('--x', `${Math.random() * 180 - 90}px`)
-        particle.style.setProperty('--y', `${Math.random() * 180 - 90}px`)
+        particle.style.setProperty('--x', `${Math.random() * 260 - 130}px`)
+        particle.style.setProperty('--y', `${Math.random() * 260 - 130}px`)
 
         document.querySelector('.game').appendChild(particle)
 
         setTimeout(() => {
             particle.remove()
-        }, 900)
+        }, 1200)
+    }
+
+    if (navigator.vibrate) {
+        navigator.vibrate([50, 30, 50, 30, 50])
     }
 }
 
