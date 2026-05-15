@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.app-screen {
+    position: relative;
+    width: min(100vw, 430px);
+    min-height: 100dvh;
+    margin: auto;
+    overflow: hidden;
+    background: #62c8ff;
+}
+
+.bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    min-height: 100dvh;
+    padding: 38px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+.logo {
+    width: 78%;
+    max-width: 320px;
+    margin-top: 18px;
+}
+
+.teacher-card,
+.select-card,
+.example-card {
+    width: 100%;
+    border-radius: 26px;
+    border: 2px solid rgba(74, 139, 150, 0.45);
+    background: rgba(255, 255, 255, 0.48);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.teacher-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 14px;
+    position: relative;
+}
+
+.teacher-img {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+}
+
+.teacher-info h1 {
+    color: #2862d9;
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.teacher-info p {
+    font-size: 0.9rem;
+    color: #111;
+}
+
+.level {
+    position: absolute;
+    right: 14px;
+    bottom: 16px;
+    background: #b45cff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.select-card {
+    padding: 26px 18px;
+    text-align: center;
+}
+
+.robot-img {
+    width: 100px;
+    margin-top: -12px;
+    margin-bottom: 10px;
+}
+
+.select-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+}
+
+select {
+    width: 90%;
+    padding: 14px;
+    border-radius: 18px;
+    border: 3px solid #69a9ff;
+    font-size: 1rem;
+    text-align: center;
+    background: white;
+    color: #111;
+    outline: none;
+}
+
+.example-card {
+    position: relative;
+    padding: 32px 18px 24px;
+    text-align: center;
+    background: rgba(255, 246, 180, 0.72);
+}
+
+.tag {
+    display: inline-block;
+    background: #ffe47a;
+    color: #ef8a00;
+    padding: 8px 22px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+
+.operation {
+    background: rgba(255, 255, 255, 0.75);
+    border: 2px dashed #ffbe57;
+    border-radius: 14px;
+    color: #ff8848;
+    font-size: 2.4rem;
+    font-weight: 900;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.voice-btn {
+    border: none;
+    background: linear-gradient(180deg, #b56cff, #7b37e8);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 12px 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 14px rgba(91, 35, 180, 0.35);
+}
+
+.score-card {
+    margin: 16px auto 0;
+    width: 155px;
+    background: #9c5cf4;
+    color: white;
+    border-radius: 14px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-card img {
+    width: 42px;
+}
+
+.score-card p {
+    font-size: 0.85rem;
+}
+
+.score-card strong {
+    font-size: 1rem;
+}
+
+.boy-img {
+    position: absolute;
+    right: -4px;
+    bottom: -35px;
+    width: 105px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.opciones button {
+    padding: 12px 16px;
+    border: 2px solid #69a9ff;
+    border-radius: 14px;
+    background: white;
+    color: #111;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.opciones button:hover {
+    background: #e8f1ff;
+    transform: scale(1.05);
+}
+
+.opciones button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.resultado-text {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 12px 0;
+    min-height: 24px;
+}
+
+.home-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: linear-gradient(180deg, #ff6b9d, #e83e8c);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(232, 62, 140, 0.4);
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(232, 62, 140, 0.6);
+}
+
+
+/* MÓVIL PEQUEÑO */
+
+@media (max-width: 380px) {
+    .home-btn {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .content {
+        gap: 16px;
+        padding: 24px 16px 20px;
+    }
+    .logo {
+        width: 72%;
+    }
+    .teacher-img {
+        width: 74px;
+        height: 74px;
+    }
+    .teacher-info h1 {
+        font-size: 1.15rem;
+    }
+    .teacher-info p {
+        font-size: 0.8rem;
+    }
+    .robot-img {
+        width: 86px;
+    }
+    .operation {
+        font-size: 2rem;
+    }
+    .boy-img {
+        width: 90px;
+    }
+}
+
+/* TABLET / iPad */
+
+@media (min-width: 768px) {
+    .app-screen {
+        width: min(100vw, 600px);
+    }
+
+    .content {
+        padding: 50px 40px 40px;
+        gap: 30px;
+    }
+
+    .logo {
+        width: 70%;
+        max-width: 400px;
+        margin-top: 30px;
+    }
+
+    .teacher-card {
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .teacher-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .teacher-info h1 {
+        font-size: 1.65rem;
+    }
+
+    .teacher-info p {
+        font-size: 1.1rem;
+    }
+
+    .level {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .select-card {
+        padding: 36px 28px;
+    }
+
+    .robot-img {
+        width: 130px;
+    }
+
+    .select-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+    }
+
+    select {
+        width: 85%;
+        padding: 16px 18px;
+        font-size: 1.1rem;
+    }
+
+    .example-card {
+        padding: 40px 28px 32px;
+    }
+
+    .tag {
+        font-size: 0.95rem;
+        padding: 10px 28px;
+        margin-bottom: 20px;
+    }
+
+    .operation {
+        font-size: 3rem;
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+
+    .voice-btn {
+        font-size: 1.1rem;
+        padding: 14px 28px;
+    }
+
+    .score-card {
+        width: 180px;
+        padding: 12px;
+        margin: 20px auto 0;
+    }
+
+    .score-card img {
+        width: 50px;
+    }
+
+    .score-card p {
+        font-size: 0.95rem;
+    }
+
+    .score-card strong {
+        font-size: 1.15rem;
+    }
+
+    .boy-img {
+        width: 140px;
+        bottom: -45px;
+    }
+
+    .opciones {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 24px 0;
+    }
+
+    .opciones button {
+        padding: 14px 18px;
+        font-size: 1.1rem;
+    }
+
+    .resultado-text {
+        font-size: 1.1rem;
+    }
+}

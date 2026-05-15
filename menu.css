@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.app>*:not(.bg-img) {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* APP */
+
+.app {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 18px 16px 30px;
+    background: #3ec7ff;
+}
+
+
+/* EFECTOS */
+
+.app::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, .35), transparent 25%), radial-gradient(circle at bottom right, rgba(255, 255, 255, .25), transparent 25%);
+    pointer-events: none;
+}
+
+
+/* TOP */
+
+.top-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.banner {
+    width: 100%;
+    max-width: 320px;
+    object-fit: contain;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    width: 100%;
+    border-radius: 28px;
+    padding: 18px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .18);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 180deg, rgba(255, 255, 255, .15), transparent);
+    pointer-events: none;
+}
+
+
+/* COLORES */
+
+.green {
+    background: linear-gradient(135deg, #29d8a6, #1db8a3);
+}
+
+.blue {
+    background: linear-gradient(135deg, #62b9ff, #5ea4ff);
+}
+
+.orange {
+    background: linear-gradient(135deg, #ffbc66, #ff8a3d);
+}
+
+.purple {
+    background: linear-gradient(135deg, #b06dff, #8d5dff);
+}
+
+
+/* ICONOS */
+
+.icon-circle {
+    min-width: 82px;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 10px rgba(255, 255, 255, .2), 0 5px 12px rgba(0, 0, 0, .15);
+}
+
+.icon-circle img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+
+/* TEXTO */
+
+.card-text {
+    flex: 1;
+}
+
+.card-text h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.card-text p {
+    color: #fff;
+    font-size: .95rem;
+    line-height: 1.2;
+    opacity: .95;
+}
+
+
+/* FLECHA */
+
+.arrow {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+
+/* CARD LINK */
+
+.card-link {
+    text-decoration: none;
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-link:active {
+    transform: scale(0.98);
+}
+
+
+/* FOOTER */
+
+.footer-card {
+    margin-top: 22px;
+    background: #fff4d8;
+    border-radius: 22px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+}
+
+.robot-footer {
+    width: 68px;
+}
+
+.star-footer {
+    width: 52px;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}
+
+.footer-text h3 {
+    color: #5142d9;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.footer-text p {
+    font-size: .8rem;
+    color: #333;
+}
+
+
+/* HOME BUTTON */
+
+.home-btn {
+    position: fixed;
+    bottom: -6px;
+    left: 16px;
+    z-index: 1000;
+    background: linear-gradient(180deg, #ff6b9d, #e83e8c);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(232, 62, 140, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.home-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(232, 62, 140, 0.6);
+}
+
+
+/* RESPONSIVE */
+
+@media(min-width:481px) and (max-width:768px) {
+    .app {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 24px 20px 30px;
+    }
+    .banner {
+        max-width: 380px;
+    }
+    .cards {
+        gap: 20px;
+    }
+    .card {
+        padding: 20px 20px;
+        border-radius: 26px;
+    }
+    .icon-circle {
+        width: 90px;
+        height: 90px;
+        min-width: 90px;
+    }
+    .icon-circle img {
+        width: 65px;
+        height: 65px;
+    }
+    .card-text h2 {
+        font-size: 1.9rem;
+    }
+    .card-text p {
+        font-size: .95rem;
+    }
+    .arrow {
+        font-size: 2.8rem;
+    }
+    .robot-footer {
+        width: 75px;
+    }
+    .star-footer {
+        width: 55px;
+    }
+    .footer-card {
+        padding: 16px;
+        border-radius: 24px;
+    }
+}
+
+@media(min-width:769px) {
+    .app {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 30px 40px 40px;
+    }
+    .banner {
+        max-width: 450px;
+    }
+    .cards {
+        gap: 24px;
+    }
+    .card {
+        padding: 24px 24px;
+        border-radius: 30px;
+    }
+    .icon-circle {
+        width: 110px;
+        height: 110px;
+        min-width: 110px;
+    }
+    .icon-circle img {
+        width: 78px;
+        height: 78px;
+    }
+    .card-text h2 {
+        font-size: 2.2rem;
+    }
+    .card-text p {
+        font-size: 1.05rem;
+    }
+    .arrow {
+        font-size: 3.2rem;
+    }
+    .robot-footer {
+        width: 85px;
+    }
+    .star-footer {
+        width: 65px;
+    }
+    .footer-card {
+        padding: 18px;
+        border-radius: 26px;
+    }
+}
+
+@media(max-width:480px) {
+    .app {
+        max-width: 100%;
+    }
+    .card {
+        padding: 16px;
+        border-radius: 24px;
+    }
+    .icon-circle {
+        width: 72px;
+        height: 72px;
+        min-width: 72px;
+    }
+    .icon-circle img {
+        width: 50px;
+        height: 50px;
+    }
+    .card-text h2 {
+        font-size: 1.7rem;
+    }
+    .card-text p {
+        font-size: .82rem;
+    }
+    .arrow {
+        font-size: 2.4rem;
+    }
+    .robot-footer {
+        width: 58px;
+    }
+    .star-footer {
+        width: 42px;
+    }
+}

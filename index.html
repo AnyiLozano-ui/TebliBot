@@ -1,52 +1,47 @@
-<!DOCTYPE html>
+<!-- index.html -->
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TabliBot IA</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TabliBot</title>
+
+    <link rel="stylesheet" href="styles2.css" />
 </head>
 
 <body>
+    <section class="welcome-container">
+        <div class="mobile-frame">
+            <img src="./imagenes/fondoback.png" alt="Fondo" class="background-img" />
 
-    <div class="app">
-        <header>
-            <h1>👩‍🏫 Profesora Lupita</h1>
-            <p>Aprende las tablas de multiplicar jugando</p>
-        </header>
+            <div class="content">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <img src="./imagenes/logo.png" alt="TabliBot" class="logo-img" />
+                </div>
 
-        <section class="card">
-            <div class="bot">🤖</div>
-            <h2 id="mensajeIA">Hola, soy TabliBot. Escoge una tabla para comenzar.</h2>
+                <!-- Texto -->
+                <div class="text-container">
+                    <h2>
+                        ¡Aprenda las tablas<br />de multiplicar jugando!
+                    </h2>
+                </div>
 
-            <label for="tabla">Elige una tabla:</label>
-            <select id="tabla" onchange="iniciarJuego()">
-        <option value="">-- Selecciona una tabla --</option>
-        <option value="2">Tabla del 2</option>
-        <option value="3">Tabla del 3</option>
-        <option value="4">Tabla del 4</option>
-        <option value="5">Tabla del 5</option>
-        <option value="6">Tabla del 6</option>
-        <option value="7">Tabla del 7</option>
-        <option value="8">Tabla del 8</option>
-        <option value="9">Tabla del 9</option>
-      </select>
-        </section>
+                <!-- Niño -->
+                <div class="character-container">
+                    <img src="./imagenes/nino1.png" alt="Niño" class="character" />
+                </div>
 
-        <section class="card juego">
-            <h2 id="pregunta">Ejemplo: 2 × 4 = 8</h2>
-
-            <button onclick="explicarConVoz()">🤖 Explicarme con voz</button>
-
-            <div id="opciones" class="opciones"></div>
-
-            <p id="resultado"></p>
-            <p>Puntaje: <span id="puntaje">0</span></p>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
+                <!-- Botón -->
+                <div class="button-container">
+                    <a href="./menu.html" class="start-button">
+                        ⭐ Comenzar Ahora ⭐
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

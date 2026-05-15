@@ -11,9 +11,8 @@ function iniciarJuego() {
     generarPregunta()
 
     hablar(
-        'Hola, soy la Profesora Lupita. Vengo para que practiquemos las tablas de multiplicar desde el nivel más bajo al más alto. ' +
-        'Has seleccionado la tabla del ' + tablaSeleccionada + '. ' +
-        'Si sabes la respuesta, selecciónala. Si necesitas ayuda, presiona el botón de explicarme por vos.',
+        '¡Excelente! Vamos a jugar con la tabla del ' + tablaSeleccionada + '. ' +
+        'Mira bien cada pregunta, ¡tú puedes! Si necesitas ayuda, presiona el botón de explicación.',
         0.7,
     )
 }
@@ -102,11 +101,11 @@ function validarRespuesta(opcion) {
             botones.forEach(btn => btn.disabled = false)
         }, 6000)
     } else {
-        resultado.textContent = 'Respuesta incorrecta. Intenta de nuevo.'
+        resultado.textContent = ''
         resultado.style.color = 'orange'
 
         hablar(
-            'Intenta de nuevo.',
+            'No es la respuesta correcta, pero tú puedes. ¡Intenta otra vez!',
             0.7,
         )
 

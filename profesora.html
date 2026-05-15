@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profesora Lupita</title>
+    <link rel="stylesheet" href="profesora.css" />
+</head>
+
+<body>
+
+    <main class="app-screen">
+
+        <img src="./imagenes/fondobackground.png" class="bg-img" alt="Fondo" />
+
+        <a href="menu.html" class="home-btn">🏠 Inicio</a>
+
+        <section class="content">
+
+            <img src="./imagenes/logo.png" class="logo" alt="TabliBot" />
+
+            <div class="teacher-card">
+                <img src="./imagenes/profesora.webp" class="teacher-img" alt="Profesora" />
+
+                <div class="teacher-info">
+                    <h1>Profesora Lupita</h1>
+                    <p>¡Juega y aprende!</p>
+                </div>
+
+                <span class="level">⭐ Nivel 1</span>
+            </div>
+
+            <div class="select-card">
+                <img src="./imagenes/robot.png" class="robot-img" alt="Robot" />
+
+                <h2>Elige una tabla:</h2>
+
+                <select id="tabla" onchange="iniciarJuego()">
+                    <option value="">-- Selecciona una tabla --</option>
+                    <option value="2">Tabla del 2</option>
+                    <option value="3">Tabla del 3</option>
+                    <option value="4">Tabla del 4</option>
+                    <option value="5">Tabla del 5</option>
+                    <option value="6">Tabla del 6</option>
+                    <option value="7">Tabla del 7</option>
+                    <option value="8">Tabla del 8</option>
+                    <option value="9">Tabla del 9</option>
+                </select>
+            </div>
+
+            <div class="example-card">
+                <span class="tag">⭐ Pregunta</span>
+
+                <div class="operation" id="pregunta">
+                    Ejemplo: 2 × 4 = ?
+                </div>
+
+                <button class="voice-btn" onclick="explicarConVoz()">
+          🤖 Explícame con voz 🔊
+        </button>
+
+                <div id="opciones" class="opciones"></div>
+
+                <p id="resultado" class="resultado-text"></p>
+
+                <div class="score-card">
+                    <img src="./imagenes/copa.png" alt="Copa" />
+                    <div>
+                        <p>Puntaje</p>
+                        <strong><span id="puntaje">0</span> pts</strong>
+                    </div>
+                </div>
+
+                <img src="./imagenes/niño.png" class="boy-img" alt="Niño" />
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* CONTENEDOR PRINCIPAL */
+
+.welcome-container {
+    width: 100%;
+    min-height: 100dvh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* PANTALLA TIPO APP */
+
+.mobile-frame {
+    position: relative;
+    width: min(100vw, 430px);
+    min-height: 100dvh;
+    height: auto;
+    aspect-ratio: 430 / 932;
+    overflow: hidden;
+    background: #58b8ff;
+}
+
+
+/* IMAGEN DE FONDO */
+
+.background-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+
+/* CONTENIDO */
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: clamp(16px, 4vw, 28px);
+}
+
+
+/* LOGO */
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.logo-img {
+    max-width: 320px;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* TEXTO */
+
+.text-container h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    line-height: 1.25;
+    font-weight: 900;
+    color: #000;
+}
+
+
+/* PERSONAJE */
+
+.character-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.character {
+    width: 80%;
+    max-width: 320px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* BOTÓN */
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.start-button {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient( 180deg, #bb6cff 0%, #8d39ff 100%);
+    padding: 16px 30px;
+    border-radius: 50px;
+    width: 82%;
+    max-width: 320px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.start-button:hover {
+    transform: scale(1.03);
+}
+
+
+/* TABLET / IPAD */
+
+@media (min-width: 481px) and (max-width: 1024px) {
+    .mobile-frame {
+        width: min(100vw, 600px);
+        aspect-ratio: auto;
+    }
+    .logo {
+        font-size: clamp(2.8rem, 8vw, 3.6rem);
+    }
+    .text-container h2 {
+        font-size: clamp(1.3rem, 4vw, 1.6rem);
+    }
+    .character {
+        width: 70%;
+        max-width: 350px;
+    }
+    .start-button {
+        width: 75%;
+        max-width: 380px;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        padding: 16px 30px;
+    }
+}
+
+
+/* MOVIL */
+
+@media (max-width: 480px) {
+    .welcome-container {
+        align-items: flex-start;
+    }
+    .mobile-frame {
+        width: 100vw;
+        min-height: 100dvh;
+        aspect-ratio: auto;
+    }
+    .content {
+        min-height: 100dvh;
+        justify-content: center;
+        gap: 24px;
+        padding: 24px 14px;
+    }
+    .logo {
+        font-size: clamp(2.4rem, 15vw, 3rem);
+    }
+    .text-container h2 {
+        font-size: clamp(1.1rem, 6vw, 1.35rem);
+    }
+    .character {
+        width: 84%;
+        max-width: 270px;
+    }
+    .start-button {
+        width: 84%;
+        font-size: 1rem;
+        padding: 14px 18px;
+    }
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 1025px) {
+    .mobile-frame {
+        width: min(100vw, 480px);
+        aspect-ratio: 430 / 932;
+    }
+    .logo {
+        font-size: 3.8rem;
+    }
+    .text-container h2 {
+        font-size: 1.7rem;
+    }
+    .character {
+        width: 80%;
+        max-width: 320px;
+    }
+    .start-button {
+        width: 82%;
+        max-width: 320px;
+        font-size: 1.2rem;
+        padding: 16px 30px;
+    }
+}
