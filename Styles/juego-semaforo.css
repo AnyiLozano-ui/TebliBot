@@ -37,27 +37,32 @@ body {
     align-items: center;
 }
 
-.back {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: white;
-    color: #7b35ef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
+.back-btn {
+    align-self: flex-start;
+    padding: 10px 16px;
+    background: linear-gradient(180deg, #b56cff, #7335e8);
+    color: white;
     text-decoration: none;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, .2);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: background .2s ease, transform .2s ease, filter .2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    margin-bottom: 16px;
+}
+
+.back-btn:hover {
+    filter: brightness(1.1);
+    transform: translateX(-2px);
+}
+
+.back-btn:active {
+    transform: scale(.95);
 }
 
 .header {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 16px;
     display: flex;
     align-items: center;
     gap: 16px;
