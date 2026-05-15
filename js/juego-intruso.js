@@ -175,12 +175,12 @@ function createGame() {
 }
 
 function checkAnswer(button, isIntruder) {
-    if (answered) return
-
-    answered = true
-    stopTimer()
+    if (answered || button.disabled) return
 
     if (isIntruder) {
+        answered = true
+        stopTimer()
+
         streak++
         bestStreak = Math.max(bestStreak, streak)
         streakText.textContent = streak
@@ -233,6 +233,9 @@ function checkAnswer(button, isIntruder) {
 
         createSadParticles(button)
 
+        lives--
+        livesText.textContent = lives
+
         setTimeout(() => {
             button.classList.remove('wrong')
             button.disabled = true
@@ -240,7 +243,13 @@ function checkAnswer(button, isIntruder) {
         }, 700)
 
         setTimeout(() => {
-            message.textContent = '👀 ¡Busca bien el intruso!'
+            if (lives <= 0) {
+                answered = true
+                stopTimer()
+                endGame()
+            } else {
+                message.textContent = '👀 ¡Busca bien el intruso!'
+            }
         }, 1200)
     }
 }
