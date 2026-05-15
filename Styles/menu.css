@@ -249,97 +249,280 @@ body {
 }
 
 
-/* RESPONSIVE */
+/* RESPONSIVE TABLET / IPAD */
 
-@media(min-width:481px) and (max-width:768px) {
+/* TABLET PEQUEÑO / IPAD (481px - 600px) */
+
+@media (min-width: 481px) and (max-width: 600px) {
     .app {
         max-width: 600px;
         margin: 0 auto;
-        padding: 24px 20px 30px;
+        padding: clamp(24px, 4vw, 35px) clamp(24px, 5vw, 45px);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+
+    .top-section {
+        margin-bottom: 28px;
+    }
+
     .banner {
         max-width: 380px;
     }
+
     .cards {
-        gap: 20px;
+        gap: 22px;
     }
+
     .card {
-        padding: 20px 20px;
-        border-radius: 26px;
+        padding: 22px;
+        border-radius: 30px;
+        gap: 16px;
     }
+
     .icon-circle {
-        width: 90px;
-        height: 90px;
-        min-width: 90px;
+        width: 100px;
+        height: 100px;
+        min-width: 100px;
     }
+
     .icon-circle img {
-        width: 65px;
-        height: 65px;
+        width: 72px;
+        height: 72px;
     }
+
     .card-text h2 {
         font-size: 1.9rem;
     }
+
     .card-text p {
-        font-size: .95rem;
+        font-size: 0.95rem;
     }
+
     .arrow {
         font-size: 2.8rem;
     }
+
     .robot-footer {
-        width: 75px;
+        width: 72px;
     }
+
     .star-footer {
-        width: 55px;
+        width: 54px;
     }
+
     .footer-card {
-        padding: 16px;
-        border-radius: 24px;
+        margin-top: 28px;
+        padding: 18px;
+        border-radius: 26px;
+        gap: 14px;
+    }
+
+    .footer-text h3 {
+        font-size: 1.15rem;
+    }
+
+    .footer-text p {
+        font-size: 0.9rem;
     }
 }
 
-@media(min-width:769px) {
+/* TABLET MEDIANO / IPAD (601px - 800px) */
+
+@media (min-width: 601px) and (max-width: 800px) {
     .app {
-        max-width: 700px;
+        max-width: 600px;
         margin: 0 auto;
-        padding: 30px 40px 40px;
+        padding: 32px 28px;
     }
+
+    .top-section {
+        margin-bottom: 32px;
+    }
+
     .banner {
-        max-width: 450px;
+        max-width: 420px;
     }
+
     .cards {
         gap: 24px;
     }
+
     .card {
-        padding: 24px 24px;
-        border-radius: 30px;
+        padding: 24px;
+        border-radius: 32px;
+        gap: 18px;
     }
+
     .icon-circle {
         width: 110px;
         height: 110px;
         min-width: 110px;
     }
+
     .icon-circle img {
         width: 78px;
         height: 78px;
     }
+
     .card-text h2 {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
     }
+
+    .card-text p {
+        font-size: 1rem;
+    }
+
+    .arrow {
+        font-size: 3rem;
+    }
+
+    .robot-footer {
+        width: 80px;
+    }
+
+    .star-footer {
+        width: 60px;
+    }
+
+    .footer-card {
+        margin-top: 32px;
+        padding: 20px;
+        border-radius: 28px;
+        gap: 16px;
+    }
+
+    .footer-text h3 {
+        font-size: 1.25rem;
+    }
+
+    .footer-text p {
+        font-size: 0.95rem;
+    }
+}
+
+/* TABLET GRANDE / IPAD PRO (801px - 1024px) */
+
+@media (min-width: 801px) and (max-width: 1024px) {
+    .app {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 36px 32px;
+    }
+
+    .top-section {
+        margin-bottom: 36px;
+    }
+
+    .banner {
+        max-width: 460px;
+    }
+
+    .cards {
+        gap: 28px;
+    }
+
+    .card {
+        padding: 28px;
+        border-radius: 34px;
+        gap: 20px;
+    }
+
+    .icon-circle {
+        width: 120px;
+        height: 120px;
+        min-width: 120px;
+    }
+
+    .icon-circle img {
+        width: 86px;
+        height: 86px;
+    }
+
+    .card-text h2 {
+        font-size: 2.3rem;
+    }
+
     .card-text p {
         font-size: 1.05rem;
     }
+
     .arrow {
         font-size: 3.2rem;
     }
+
     .robot-footer {
-        width: 85px;
+        width: 90px;
+    }
+
+    .star-footer {
+        width: 68px;
+    }
+
+    .footer-card {
+        margin-top: 36px;
+        padding: 22px;
+        border-radius: 30px;
+        gap: 18px;
+    }
+
+    .footer-text h3 {
+        font-size: 1.35rem;
+    }
+
+    .footer-text p {
+        font-size: 1rem;
+    }
+}
+
+/* RESPONSIVE DESKTOP */
+
+@media(min-width:1025px) {
+    .app {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 18px 16px 30px;
+    }
+    .banner {
+        max-width: 320px;
+    }
+    .cards {
+        gap: 18px;
+    }
+    .card {
+        padding: 18px 18px;
+        border-radius: 28px;
+    }
+    .icon-circle {
+        width: 82px;
+        height: 82px;
+        min-width: 82px;
+    }
+    .icon-circle img {
+        width: 58px;
+        height: 58px;
+    }
+    .card-text h2 {
+        font-size: 2rem;
+    }
+    .card-text p {
+        font-size: 0.95rem;
+    }
+    .arrow {
+        font-size: 3rem;
+    }
+    .robot-footer {
+        width: 68px;
     }
     .star-footer {
-        width: 65px;
+        width: 52px;
     }
     .footer-card {
-        padding: 18px;
-        border-radius: 26px;
+        padding: 14px;
+        border-radius: 22px;
     }
 }
 

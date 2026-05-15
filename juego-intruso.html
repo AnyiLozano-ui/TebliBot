@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentra el intruso</title>
+    <link rel="stylesheet" href="./Styles/juego-intruso.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondobackground.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="juegos.html" class="back">←</a>
+
+            <div class="header">
+                <img src="./imagenes/robot.png" alt="Robot">
+                <div>
+                    <h1>Encuentra el intruso</h1>
+                    <p>Toca la operación que está mal</p>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="lives-box">
+                    ❤️ Vidas: <span id="lives">3</span>
+                </div>
+                <div class="score-box">
+                    ⭐ Puntaje: <span id="score">0</span>
+                </div>
+                <div class="streak-box">
+                    🔥 Racha: <span id="streak">0</span>
+                </div>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-bar" id="timerBar"></div>
+                <p class="timer-text">⏱️ <span id="timer">8</span>s</p>
+            </div>
+
+            <div class="instruction-card">
+                <h2>¿Cuál no pertenece?</h2>
+                <p id="difficulty">Nivel 1: Tablas 2-5</p>
+            </div>
+
+            <div class="cards-grid" id="cardsGrid"></div>
+
+            <p class="message" id="message">
+                Observa con calma 😊
+            </p>
+
+            <button class="next-btn" id="nextBtn">
+      Siguiente reto 🚀
+    </button>
+
+        </section>
+
+        <div class="game-over-modal" id="gameOverModal">
+            <div class="modal-content">
+                <h2 id="modalTitle">🎮 GAME OVER</h2>
+                <div class="final-stats">
+                    <div class="stat">
+                        <p>Puntaje Final</p>
+                        <h3 id="finalScore">0</h3>
+                    </div>
+                    <div class="stat">
+                        <p>Nivel Alcanzado</p>
+                        <h3 id="finalLevel">1</h3>
+                    </div>
+                    <div class="stat">
+                        <p>Mejor Racha</p>
+                        <h3 id="bestStreak">0</h3>
+                    </div>
+                </div>
+                <button class="restart-btn" id="restartBtn">Jugar de Nuevo 🚀</button>
+                <a href="juegos.html" class="back-menu-btn">← Volver al Menú</a>
+            </div>
+        </div>
+
+    </main>
+
+    <audio id="successSound" src="./sonidos/correcto.wav"></audio>
+    <audio id="wrongSound" src="./sonidos/incorrecto.wav"></audio>
+    <audio id="levelUpSound" src="./sonidos/burbujas.mp3"></audio>
+    <audio id="bonusSound" src="./sonidos/correcto.wav"></audio>
+
+    <script src="./js/juego-intruso.js"></script>
+
+</body>
+
+</html>

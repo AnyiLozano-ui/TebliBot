@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Une y Aprende</title>
+
+    <link rel="stylesheet" href="./Styles/juego-unir.css" />
+</head>
+
+<body>
+    <main class="game">
+        <img src="./imagenes/fondojuegos.png" class="bg" />
+
+        <a href="./juegos.html" class="home-btn">🏠</a>
+
+        <section class="content">
+            <div class="title-box">
+                <img src="./imagenes/nube.png" />
+
+                <div>
+                    <h1>☁️ Une y Aprende</h1>
+                    <p>Une cada operación con su resultado</p>
+                </div>
+            </div>
+
+            <div class="score-box">
+                ⭐ Puntaje:
+                <span id="score">0</span>
+            </div>
+
+            <section class="board">
+                <svg id="lines"></svg>
+
+                <div class="column left" id="operations"></div>
+
+                <div class="column right" id="answers"></div>
+            </section>
+
+            <div class="message" id="message">
+                Une las parejas correctas 😊
+            </div>
+
+            <button class="next-btn" id="nextBtn">
+					🚀 Siguiente ronda
+				</button>
+        </section>
+    </main>
+
+    <audio id="successSound" src="./sonidos/correcto.wav"></audio>
+    <audio id="wrongSound" src="./sonidos/incorrecto.wav"></audio>
+
+    <script src="./js/juego-unir.js"></script>
+</body>
+
+</html>

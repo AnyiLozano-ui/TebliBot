@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda al Robot</title>
+    <link rel="stylesheet" href="./Styles/juego-robot.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondomenu.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="juegos.html" class="back">↩️</a>
+
+            <div class="header">
+                <img src="./imagenes/robot.png" alt="Robot">
+                <h1>Ayuda al Robot</h1>
+                <p>Resuelve la operación para encenderlo</p>
+            </div>
+
+            <div class="score-box">
+                ⭐ Puntaje: <span id="score">0</span>
+            </div>
+
+            <div class="robot-card">
+                <div class="robot-face" id="robotFace">🤖</div>
+
+                <p class="robot-text" id="robotText">
+                    Necesito tu ayuda 💜
+                </p>
+
+                <div class="operation" id="operation">
+                    3 × 2 = ?
+                </div>
+
+                <div class="answers" id="answers"></div>
+            </div>
+
+            <p class="message" id="message">
+                Toca la respuesta correcta 😊
+            </p>
+
+            <button class="next-btn" id="nextBtn">
+      Siguiente ayuda 🚀
+    </button>
+
+        </section>
+
+    </main>
+
+
+    <audio id="bubbleSound" src="./imagenes/sonidos/pop.mp3"></audio>
+
+    <script src="./js/juego-robot.js"></script>
+
+</body>
+
+</html>

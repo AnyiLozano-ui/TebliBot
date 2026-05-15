@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.app {
+    position: relative;
+    width: min(100vw, 430px);
+    min-height: 100dvh;
+    margin: auto;
+    overflow: hidden;
+    background: #77cf4c;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    min-height: 100dvh;
+    padding: 24px 18px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.girl {
+    width: 165px;
+    position: absolute;
+    top: 34%;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .25));
+    animation: jump 0.8s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-25px);
+    }
+}
+
+.menu-card {
+    width: 100%;
+    min-height: 360px;
+    background: rgba(104, 179, 45, 0.82);
+    border: 3px solid rgba(76, 178, 255, 0.75);
+    border-radius: 28px;
+    padding: 0 20px 24px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .25), inset 0 0 25px rgba(255, 255, 255, .15);
+    overflow: hidden;
+}
+
+.title {
+    margin: -2px -20px 20px;
+    background: linear-gradient(180deg, #a760ff, #7537df);
+    color: white;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 24px 24px 14px 14px;
+    box-shadow: 0 8px 18px rgba(83, 43, 160, .35);
+}
+
+.title img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.title h1 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.game-btn {
+    min-height: 105px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    font-weight: 900;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .22), inset 0 4px 10px rgba(255, 255, 255, .22);
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.game-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: brightness(1.05);
+}
+
+.game-btn:active {
+    transform: scale(.96);
+}
+
+.game-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .2));
+}
+
+.orange {
+    background: linear-gradient(180deg, #ffb04d, #ff8737);
+}
+
+.blue {
+    background: linear-gradient(180deg, #78cfff, #45aaf2);
+}
+
+.purple {
+    background: linear-gradient(180deg, #b982ff, #8f5be8);
+}
+
+.pink {
+    background: linear-gradient(180deg, #ff73b8, #f04e9f);
+}
+
+.home-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: linear-gradient(180deg, #ff6b9d, #e83e8c);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(232, 62, 140, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.home-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(232, 62, 140, 0.6);
+}
+
+
+/* Decoración suave abajo */
+
+.menu-card::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    bottom: -50px;
+    left: -35px;
+    background: radial-gradient(circle, rgba(255, 92, 137, .5), transparent 65%);
+}
+
+.menu-card::before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    bottom: -50px;
+    right: -35px;
+    background: radial-gradient(circle, rgba(255, 92, 137, .5), transparent 65%);
+}
+
+
+/* Responsive */
+
+/* Móvil pequeño (hasta 390px) */
+@media (max-width: 390px) {
+    .content {
+        padding: 16px 12px 20px;
+    }
+    .girl {
+        width: 130px;
+        top: 30%;
+    }
+    .menu-card {
+        min-height: 320px;
+        padding: 0 14px 18px;
+    }
+    .title {
+        margin: -2px -14px 16px;
+        height: 56px;
+    }
+    .title h1 {
+        font-size: 1.2rem;
+    }
+    .title img {
+        width: 26px;
+        height: 26px;
+    }
+    .games-grid {
+        gap: 12px;
+    }
+    .game-btn {
+        min-height: 90px;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+    .game-btn img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Móvil mediano (391px - 500px) */
+@media (min-width: 391px) and (max-width: 500px) {
+    .content {
+        padding: 18px 14px 24px;
+    }
+    .girl {
+        width: 145px;
+        top: 32%;
+    }
+    .menu-card {
+        min-height: 340px;
+        padding: 0 16px 20px;
+    }
+    .title {
+        margin: -2px -16px 18px;
+        height: 58px;
+    }
+    .title h1 {
+        font-size: 1.3rem;
+    }
+    .games-grid {
+        gap: 14px;
+    }
+    .game-btn {
+        min-height: 100px;
+        font-size: 0.92rem;
+        padding: 12px;
+    }
+    .game-btn img {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* iPad pequeño (501px - 768px) */
+@media (min-width: 501px) and (max-width: 768px) {
+    .app {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 28px 28px 36px;
+    }
+    .girl {
+        width: 180px;
+        top: 30%;
+    }
+    .menu-card {
+        min-height: 380px;
+        padding: 0 28px 28px;
+        max-width: 100%;
+    }
+    .title {
+        margin: -2px -28px 24px;
+        height: 66px;
+    }
+    .title h1 {
+        font-size: 1.6rem;
+    }
+    .title img {
+        width: 32px;
+        height: 32px;
+    }
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    .game-btn {
+        min-height: 115px;
+        font-size: 1rem;
+        padding: 15px;
+    }
+    .game-btn img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+/* iPad mediano (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
+    .app {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 32px 32px 40px;
+    }
+    .girl {
+        width: 200px;
+        top: 28%;
+    }
+    .menu-card {
+        min-height: 400px;
+        padding: 0 32px 32px;
+        max-width: 100%;
+    }
+    .title {
+        margin: -2px -32px 26px;
+        height: 68px;
+    }
+    .title h1 {
+        font-size: 1.7rem;
+    }
+    .title img {
+        width: 34px;
+        height: 34px;
+    }
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .game-btn {
+        min-height: 125px;
+        font-size: 1.05rem;
+        padding: 16px;
+    }
+    .game-btn img {
+        width: 68px;
+        height: 68px;
+    }
+}
+
+/* iPad grande / Pro (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .app {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 36px 36px 44px;
+    }
+    .girl {
+        width: 220px;
+        top: 26%;
+    }
+    .menu-card {
+        min-height: 420px;
+        padding: 0 36px 36px;
+        max-width: 100%;
+    }
+    .title {
+        margin: -2px -36px 28px;
+        height: 72px;
+    }
+    .title h1 {
+        font-size: 1.9rem;
+    }
+    .title img {
+        width: 38px;
+        height: 38px;
+    }
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+    .game-btn {
+        min-height: 135px;
+        font-size: 1.15rem;
+        padding: 18px;
+    }
+    .game-btn img {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+/* Web / Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .app {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 32px 18px 28px;
+    }
+    .girl {
+        width: 180px;
+        top: 32%;
+    }
+    .menu-card {
+        min-height: 380px;
+        padding: 0 20px 24px;
+        max-width: 100%;
+    }
+    .title {
+        margin: -2px -20px 20px;
+        height: 62px;
+    }
+    .title h1 {
+        font-size: 1.6rem;
+    }
+    .title img {
+        width: 30px;
+        height: 30px;
+    }
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .game-btn {
+        min-height: 105px;
+        font-size: 1rem;
+        padding: 14px;
+    }
+    .game-btn img {
+        width: 60px;
+        height: 60px;
+    }
+}

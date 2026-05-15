@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atrapa el resultado</title>
+    <link rel="stylesheet" href="./styles/juego-cohete.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondomenu.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="juegos.html" class="back">‹</a>
+
+            <div class="header">
+                <img src="./imagenes/atrapa.png" class="header-img" alt="Atrapa el resultado">
+            </div>
+
+            <div class="score-container">
+                <div class="score">
+                    ⭐ Puntaje: <span id="score">0</span>
+                </div>
+                <div class="lives">
+                    <span id="lives">❤️ ❤️ ❤️</span>
+                </div>
+                <div class="timer">
+                    ⏱️ <span id="timer">0</span>s
+                </div>
+            </div>
+
+            <div class="operation-box">
+                <p>Resultado de:</p>
+                <h2 id="operation">5 × 2</h2>
+            </div>
+
+            <div class="game-area" id="gameArea">
+                <div class="falling-number" id="fallingNumber">10</div>
+
+                <img src="./imagenes/cohete.png" class="rocket" id="rocket" alt="Cohete">
+            </div>
+
+            <p class="message" id="message">¡Atrapa el número correcto!</p>
+
+        </section>
+
+    </main>
+
+    <audio id="successSound" src="./imagenes/sonidos/pop.mp3"></audio>
+    <audio id="wrongSound" src="./imagenes/sonidos/wrong.mp3"></audio>
+
+    <script src="./js/juego-cohete.js"></script>
+</body>
+
+</html>

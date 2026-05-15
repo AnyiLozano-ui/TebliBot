@@ -1,0 +1,930 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.game {
+    width: 100%;
+    max-width: 430px;
+    height: 100dvh;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #58cfff;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100dvh;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    color: #7b35ef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .2);
+}
+
+.header {
+    text-align: center;
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    object-fit: contain;
+}
+
+.header h1 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #142b78;
+    text-shadow: 0 3px 0 white;
+}
+
+.header p {
+    margin-top: 8px;
+    font-size: .95rem;
+    font-weight: 800;
+    color: #7b35ef;
+}
+
+.score-container {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.score {
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 900;
+    box-shadow: 0 6px 14px rgba(98, 45, 190, .35);
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.lives {
+    padding: 10px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .85);
+    color: #ff1744;
+    font-size: 0.9rem;
+    font-weight: 900;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.timer {
+    padding: 10px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .85);
+    color: #142b78;
+    font-size: 0.9rem;
+    font-weight: 900;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .15);
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.operation-box {
+    margin-top: 18px;
+    width: 100%;
+    padding: 18px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .78);
+    text-align: center;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
+    backdrop-filter: blur(8px);
+}
+
+.operation-box p {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #333;
+}
+
+.operation-box h2 {
+    margin-top: 5px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ff7a25;
+}
+
+.game-area {
+    margin-top: 20px;
+    width: 100%;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .28);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .35);
+}
+
+.falling-number {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top left, #fff, #ffcc42, #ff8a00);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    box-shadow: inset 0 6px 10px rgba(255, 255, 255, .5), 0 10px 20px rgba(0, 0, 0, .2);
+    transform: translateX(-50%);
+    animation: floatBubbleFall 4s ease-in infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    touch-action: none;
+}
+
+.falling-number.correct {
+    background: radial-gradient(circle at top left, #fff, #42ff6f, #00d946);
+    box-shadow: inset 0 6px 10px rgba(255, 255, 255, .5), 0 10px 20px rgba(13, 200, 60, 0.4), 0 0 20px rgba(66, 255, 111, 0.5);
+}
+
+.falling-number.incorrect {
+    cursor: pointer;
+    background: radial-gradient(circle at top left, #fff, #ff6f6f, #ff1744);
+    box-shadow: inset 0 6px 10px rgba(255, 255, 255, .5), 0 10px 20px rgba(255, 23, 68, 0.4), 0 0 20px rgba(255, 23, 68, 0.6);
+    animation: pulseRed 0.8s ease-in-out infinite;
+}
+
+.falling-number.incorrect:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+@keyframes pulseRed {
+    0%, 100% {
+        box-shadow: inset 0 6px 10px rgba(255, 255, 255, .5), 0 10px 20px rgba(255, 23, 68, 0.4), 0 0 20px rgba(255, 23, 68, 0.6);
+        filter: brightness(1);
+    }
+    50% {
+        box-shadow: inset 0 6px 10px rgba(255, 255, 255, .5), 0 10px 20px rgba(255, 23, 68, 0.5), 0 0 30px rgba(255, 23, 68, 1);
+        filter: brightness(1.1);
+    }
+}
+
+.falling-number.shot {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes floatBubbleFall {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: translateX(calc(-50% + 12px)) translateY(-10px) scale(1.05) rotate(15deg);
+    }
+    50% {
+        transform: translateX(calc(-50% - 8px)) translateY(-18px) scale(1.03) rotate(-10deg);
+    }
+    75% {
+        transform: translateX(calc(-50% + 6px)) translateY(-8px) scale(1.04) rotate(8deg);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.rocket {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    width: 110px;
+    transform: translateX(-50%);
+    transition: left .08s linear;
+    filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .25));
+}
+
+.message {
+    margin-top: 14px;
+    min-height: 28px;
+    color: #142b78;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.explosion {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, #ffd966, #ff8a00);
+    pointer-events: none;
+    box-shadow: 0 0 18px #ffd966, 0 0 32px #ff8a00;
+    animation: boom .8s ease-out forwards;
+}
+
+@keyframes boom {
+    0% {
+        transform: translate(0, 0) scale(.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.6);
+        opacity: 0;
+    }
+}
+
+.bullet {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top left, #ffff00, #ff8c00);
+    box-shadow: 0 0 12px #ffff00, 0 0 24px #ff8c00;
+    pointer-events: none;
+    animation: bulletTravel var(--duration, 0.5s) linear forwards;
+}
+
+@keyframes bulletTravel {
+    0% {
+        transform: translate(var(--startX), var(--startY)) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--endX), var(--endY)) scale(0.3);
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    animation: fadeOutShot 0.3s ease-out forwards;
+}
+
+@keyframes fadeOutShot {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Mobile - Pantallas pequeñas */
+@media (max-width: 480px) {
+    .content {
+        padding: 12px 10px;
+    }
+
+    .back {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+        top: 12px;
+        left: 12px;
+    }
+
+    .header {
+        margin-top: 16px;
+    }
+
+    .header-img {
+        max-width: 180px;
+    }
+
+    .header h1 {
+        font-size: 1.3rem;
+    }
+
+    .header p {
+        font-size: 0.75rem;
+    }
+
+    .score-container {
+        gap: 6px;
+        margin-top: 8px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .score, .lives, .timer {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        border-radius: 14px;
+        white-space: nowrap;
+        flex: 0 1 auto;
+    }
+
+    .operation-box {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .operation-box p {
+        font-size: 0.85rem;
+    }
+
+    .operation-box h2 {
+        font-size: 1.6rem;
+        margin-top: 2px;
+    }
+
+    .game-area {
+        margin-top: 10px;
+        border-radius: 16px;
+    }
+
+    .falling-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+        top: -60px;
+    }
+
+    .rocket {
+        width: 80px;
+        bottom: 10px;
+    }
+
+    .message {
+        font-size: 0.8rem;
+        margin-top: 6px;
+        min-height: 20px;
+    }
+
+    .game-over-content {
+        padding: 32px 20px;
+        max-width: 270px;
+        border-radius: 28px;
+        border: 2px solid #7b35ef;
+    }
+
+    .game-over-content h2 {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+
+    .game-over-stats {
+        padding: 16px;
+        border-radius: 18px;
+        margin: 16px 0;
+    }
+
+    .game-over-stats p {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+
+    .game-over-stats span {
+        font-size: 1.6rem;
+    }
+
+    .game-over-button {
+        padding: 12px 32px;
+        border-radius: 18px;
+        font-size: 0.9rem;
+        margin-top: 16px;
+    }
+}
+
+/* Tablet/iPad */
+@media (min-width: 481px) and (max-width: 768px) {
+    .content {
+        padding: 16px 12px;
+    }
+
+    .back {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        top: 14px;
+        left: 14px;
+    }
+
+    .header {
+        margin-top: 24px;
+    }
+
+    .header-img {
+        max-width: 240px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .score-container {
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .score, .lives, .timer {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+        border-radius: 16px;
+        white-space: nowrap;
+        flex: 0 1 auto;
+    }
+
+    .operation-box {
+        margin-top: 12px;
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .operation-box p {
+        font-size: 0.95rem;
+    }
+
+    .operation-box h2 {
+        font-size: 2rem;
+        margin-top: 4px;
+    }
+
+    .game-area {
+        margin-top: 12px;
+        border-radius: 18px;
+    }
+
+    .falling-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        top: -68px;
+    }
+
+    .rocket {
+        width: 90px;
+        bottom: 12px;
+    }
+
+    .message {
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+
+    .game-over-content {
+        padding: 40px 28px;
+        max-width: 300px;
+        border-radius: 30px;
+        border: 2px solid #7b35ef;
+    }
+
+    .game-over-content h2 {
+        font-size: 2.3rem;
+        margin-bottom: 18px;
+    }
+
+    .game-over-stats {
+        padding: 18px;
+        border-radius: 20px;
+        margin: 18px 0;
+    }
+
+    .game-over-stats p {
+        font-size: 0.95rem;
+        margin: 10px 0;
+    }
+
+    .game-over-stats span {
+        font-size: 1.8rem;
+    }
+
+    .game-over-button {
+        padding: 13px 38px;
+        border-radius: 20px;
+        font-size: 1rem;
+        margin-top: 18px;
+    }
+}
+
+/* iPad Grande */
+@media (min-width: 769px) {
+    .game {
+        max-width: 500px;
+    }
+
+    .content {
+        padding: 20px 16px;
+    }
+
+    .back {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        top: 16px;
+        left: 16px;
+    }
+
+    .header {
+        margin-top: 28px;
+    }
+
+    .header-img {
+        max-width: 280px;
+    }
+
+    .header h1 {
+        font-size: 1.7rem;
+    }
+
+    .header p {
+        font-size: 0.95rem;
+    }
+
+    .score-container {
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .score, .lives, .timer {
+        padding: 11px 16px;
+        font-size: 0.9rem;
+    }
+
+    .operation-box {
+        margin-top: 16px;
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .operation-box p {
+        font-size: 1rem;
+    }
+
+    .operation-box h2 {
+        font-size: 2.4rem;
+    }
+
+    .game-area {
+        margin-top: 16px;
+        border-radius: 22px;
+    }
+
+    .falling-number {
+        width: 68px;
+        height: 68px;
+        font-size: 1.3rem;
+        top: -76px;
+    }
+
+    .rocket {
+        width: 100px;
+        bottom: 14px;
+    }
+
+    .message {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .game-over-content {
+        padding: 44px 32px;
+        max-width: 320px;
+        border-radius: 32px;
+        border: 2.5px solid #7b35ef;
+    }
+
+    .game-over-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .game-over-stats {
+        padding: 20px;
+        border-radius: 22px;
+        margin: 20px 0;
+    }
+
+    .game-over-stats p {
+        font-size: 0.98rem;
+        margin: 11px 0;
+    }
+
+    .game-over-stats span {
+        font-size: 2rem;
+    }
+
+    .game-over-button {
+        padding: 15px 44px;
+        border-radius: 22px;
+        font-size: 1.05rem;
+        margin-top: 20px;
+    }
+}
+
+/* Landscape mode */
+@media (max-height: 500px) {
+    .content {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .header {
+        margin-top: 12px;
+    }
+
+    .header-img {
+        max-width: 120px;
+    }
+
+    .header h1 {
+        font-size: 1rem;
+    }
+
+    .header p {
+        font-size: 0.7rem;
+    }
+
+    .score-container {
+        gap: 6px;
+        margin-top: 6px;
+    }
+
+    .score, .lives, .timer {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        border-radius: 12px;
+    }
+
+    .operation-box {
+        margin-top: 8px;
+        padding: 8px;
+        border-radius: 14px;
+    }
+
+    .operation-box p {
+        font-size: 0.8rem;
+    }
+
+    .operation-box h2 {
+        font-size: 1.4rem;
+        margin-top: 2px;
+    }
+
+    .game-area {
+        margin-top: 8px;
+        border-radius: 14px;
+        min-height: 200px;
+    }
+
+    .falling-number {
+        width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
+        top: -50px;
+    }
+
+    .rocket {
+        width: 70px;
+        bottom: 8px;
+    }
+
+    .message {
+        font-size: 0.75rem;
+        margin-top: 4px;
+    }
+
+    .game-over-content {
+        padding: 28px 18px;
+        max-width: 240px;
+        border-radius: 24px;
+    }
+
+    .game-over-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+
+    .game-over-stats {
+        padding: 12px;
+        border-radius: 16px;
+        margin: 12px 0;
+    }
+
+    .game-over-stats p {
+        font-size: 0.8rem;
+        margin: 6px 0;
+    }
+
+    .game-over-stats span {
+        font-size: 1.4rem;
+    }
+
+    .game-over-button {
+        padding: 10px 28px;
+        border-radius: 16px;
+        font-size: 0.8rem;
+        margin-top: 12px;
+    }
+}
+
+
+/* COHETE TRISTE */
+
+.rocket-sad {
+    animation: rocketSad .7s ease;
+}
+
+@keyframes rocketSad {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    20% {
+        transform: translateX(-50%) rotate(-10deg);
+    }
+    40% {
+        transform: translateX(-50%) rotate(10deg);
+    }
+    60% {
+        transform: translateX(-50%) rotate(-8deg);
+    }
+    80% {
+        transform: translateX(-50%) rotate(8deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+
+/* PARTICULAS TRISTES */
+
+.sad-particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, #7ce7ff, #00bfff);
+    box-shadow: 0 0 14px #7ce7ff;
+    pointer-events: none;
+    animation: sadBoom .9s ease-out forwards;
+}
+
+@keyframes sadBoom {
+    0% {
+        transform: translate(0, 0) scale(.3);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.4);
+        opacity: 0;
+    }
+}
+
+.game-over {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(123, 53, 239, 0.9), rgba(88, 207, 255, 0.9));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    backdrop-filter: blur(8px);
+    animation: gameOverBg 0.6s ease-out;
+}
+
+@keyframes gameOverBg {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.game-over-content {
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    padding: 50px 35px;
+    border-radius: 40px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(123, 53, 239, 0.3);
+    max-width: 340px;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 3px solid #7b35ef;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.game-over-content h2 {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #ff1744, #ff6f00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 25px;
+    font-weight: 900;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-over-stats {
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    padding: 25px;
+    border-radius: 25px;
+    color: white;
+    margin: 25px 0;
+    box-shadow: 0 15px 35px rgba(123, 53, 239, 0.3);
+}
+
+.game-over-stats p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 12px 0;
+    opacity: 0.95;
+}
+
+.game-over-stats span {
+    font-size: 2.2rem;
+    font-weight: 900;
+    display: block;
+    color: #ffeb3b;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-over-button {
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    color: white;
+    border: none;
+    padding: 16px 50px;
+    border-radius: 28px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 12px 30px rgba(123, 53, 239, 0.4);
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.game-over-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(123, 53, 239, 0.5);
+}
+
+.game-over-button:active {
+    transform: scale(.95);
+}
