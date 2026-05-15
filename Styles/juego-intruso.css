@@ -41,18 +41,21 @@ body {
     position: absolute;
     top: 18px;
     left: 18px;
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: white;
+    background: linear-gradient(180deg, #ffffff, #f5e6ff);
     color: #7b35ef;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     text-decoration: none;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, .2);
+    box-shadow: 0 8px 18px rgba(123, 53, 239, .3), inset 0 0 10px rgba(255, 255, 255, .6);
+    transition: all .3s ease;
+    border: 2px solid rgba(255, 255, 255, .8);
+    animation: floatButton 3s ease-in-out infinite;
 }
 
 .header {
@@ -83,6 +86,26 @@ body {
     50% {
         transform: translateY(-8px);
     }
+}
+
+@keyframes floatButton {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.back:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 12px 24px rgba(123, 53, 239, .4), inset 0 0 10px rgba(255, 255, 255, .6);
+    background: linear-gradient(180deg, #ffffff, #efd4ff);
+}
+
+.back:active {
+    transform: scale(.95);
 }
 
 .header h1 {
