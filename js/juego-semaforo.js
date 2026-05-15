@@ -20,7 +20,7 @@ let isCorrectOperation = false
 let answered = false
 let responseTime = 0
 
-let timeLeft = 5
+let timeLeft = 10
 let timerInterval = null
 let startTime = 0
 
@@ -34,7 +34,7 @@ function createChallenge() {
     answered = false
     nextBtn.classList.remove('show')
 
-    timeLeft = 5
+    timeLeft = 10
     timerText.textContent = timeLeft
     responseTime = 0
 
@@ -116,9 +116,9 @@ function updateLights() {
     yellowLight.classList.remove('active')
     greenLight.classList.remove('active')
 
-    if (timeLeft >= 4) {
+    if (timeLeft >= 7) {
         greenLight.classList.add('active')
-    } else if (timeLeft >= 2) {
+    } else if (timeLeft >= 4) {
         yellowLight.classList.add('active')
     } else {
         redLight.classList.add('active')
@@ -144,13 +144,13 @@ function checkAnswer(userSaysCorrect, button) {
         let comboBonus = 0
         let speedMessage = ''
 
-        if (responseTime <= 2) {
+        if (responseTime <= 4) {
             speedBonus = 15
             speedMessage = '⚡ ¡RÁPIDO!'
-        } else if (responseTime <= 3) {
+        } else if (responseTime <= 6) {
             speedBonus = 10
             speedMessage = '🚀 ¡MUY BIEN!'
-        } else if (responseTime <= 4) {
+        } else if (responseTime <= 8) {
             speedBonus = 5
             speedMessage = '✅ ¡CORRECTO!'
         } else {
