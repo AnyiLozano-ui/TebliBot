@@ -36,7 +36,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 10px;
 }
 
 .back {
@@ -62,7 +62,7 @@ body {
 
 .header {
     width: 100%;
-    margin-top: 32px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -72,6 +72,7 @@ body {
     backdrop-filter: blur(8px);
     box-shadow: 0 10px 22px rgba(0, 0, 0, .15), inset 0 0 18px rgba(255, 255, 255, .25);
     flex-shrink: 0;
+    margin-bottom: 12px;
 }
 
 .header img {
@@ -131,6 +132,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
     flex-shrink: 0;
+    margin-bottom: 6px;
 }
 
 .lives-box,
@@ -158,6 +160,7 @@ body {
     width: 100%;
     position: relative;
     flex-shrink: 0;
+    margin-bottom: 8px;
 }
 
 .timer-bar {
@@ -202,6 +205,7 @@ body {
     background: rgba(255, 248, 216, .86);
     box-shadow: 0 12px 24px rgba(0, 0, 0, .16), inset 0 0 18px rgba(255, 255, 255, .4);
     flex-shrink: 0;
+    margin-bottom: 8px;
 }
 
 .instruction-card h2 {
@@ -514,7 +518,8 @@ body {
     }
 
     .header {
-        margin-top: 28px;
+        margin-top: 42px;
+        margin-bottom: 10px;
         padding: 12px;
     }
 
@@ -533,6 +538,7 @@ body {
 
     .stats-container {
         gap: 6px;
+        margin-bottom: 6px;
     }
 
     .lives-box,
@@ -547,8 +553,13 @@ body {
         font-size: 0.75rem;
     }
 
+    .timer-container {
+        margin-bottom: 6px;
+    }
+
     .instruction-card {
         padding: 10px 10px;
+        margin-bottom: 6px;
     }
 
     .instruction-card h2 {
@@ -631,7 +642,8 @@ body {
     }
 
     .header {
-        margin-top: 32px;
+        margin-top: 48px;
+        margin-bottom: 10px;
         padding: 13px;
     }
 
@@ -650,6 +662,7 @@ body {
 
     .stats-container {
         gap: 7px;
+        margin-bottom: 6px;
     }
 
     .lives-box,
@@ -664,8 +677,13 @@ body {
         font-size: 0.85rem;
     }
 
+    .timer-container {
+        margin-bottom: 6px;
+    }
+
     .instruction-card {
         padding: 13px 12px;
+        margin-bottom: 6px;
     }
 
     .instruction-card h2 {
@@ -749,7 +767,8 @@ body {
     }
 
     .header {
-        margin-top: 34px;
+        margin-top: 52px;
+        margin-bottom: 12px;
         padding: 15px;
     }
 
@@ -768,6 +787,7 @@ body {
 
     .stats-container {
         gap: 9px;
+        margin-bottom: 8px;
     }
 
     .lives-box,
@@ -782,8 +802,13 @@ body {
         font-size: 0.92rem;
     }
 
+    .timer-container {
+        margin-bottom: 8px;
+    }
+
     .instruction-card {
         padding: 15px 14px;
+        margin-bottom: 8px;
     }
 
     .instruction-card h2 {
@@ -862,7 +887,8 @@ body {
     }
 
     .header {
-        margin-top: 16px;
+        margin-top: 18px;
+        margin-bottom: 4px;
         padding: 8px;
     }
 
@@ -881,6 +907,7 @@ body {
 
     .stats-container {
         gap: 4px;
+        margin-bottom: 3px;
     }
 
     .lives-box,
@@ -895,8 +922,13 @@ body {
         font-size: 0.65rem;
     }
 
+    .timer-container {
+        margin-bottom: 3px;
+    }
+
     .instruction-card {
         padding: 6px 8px;
+        margin-bottom: 4px;
     }
 
     .instruction-card h2 {
