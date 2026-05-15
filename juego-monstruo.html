@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimenta al Monstruo</title>
+    <link rel="stylesheet" href="./Styles/juego-monstruo.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondojuegos.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="desafios.html" class="back-btn">← Atrás</a>
+
+            <div class="header">
+                <div class="monster-head"><img src="./imagenes/monstruo.png" alt="Monstruo"></div>
+                <div>
+                    <h1>Alimenta al monstruo</h1>
+                    <p>Arrastra la comida con el resultado correcto</p>
+                </div>
+            </div>
+
+            <div class="score-box">
+                ⭐ Puntaje: <span id="score">0</span>
+            </div>
+
+            <div class="monster-card">
+
+                <div class="monster" id="monster">
+                    <img src="./imagenes/monstruofelix.png" alt="Monstruo" class="monster-face">
+                    <p>Tengo hambre de...</p>
+                    <h2 id="operation">5 × 2</h2>
+                </div>
+
+                <div class="foods" id="foods"></div>
+
+            </div>
+
+            <p class="message" id="message">
+                Arrastra la comida correcta 😊
+            </p>
+
+            <button class="next-btn" id="nextBtn">
+      Siguiente comida 🚀
+    </button>
+
+        </section>
+
+    </main>
+
+    <audio id="successSound" src="./sonidos/correcto.wav"></audio>
+    <audio id="wrongSound" src="./sonidos/incorrecto.wav"></audio>
+    <audio id="burbujasSound" src="./sonidos/burbujas.mp3"></audio>
+    <audio id="ganadorSound" src="./sonidos/ganador.mp3"></audio>
+
+    <script src="./js/juego-monstruo.js"></script>
+
+</body>
+
+</html>

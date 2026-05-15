@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigue el Patrón</title>
+    <link rel="stylesheet" href="./Styles/juego-patron.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <img src="./imagenes/fondojuegos.png" class="bg" alt="Fondo">
+
+        <section class="content">
+
+            <a href="desafios.html" class="back-btn">← Atrás</a>
+
+            <div class="header">
+                <div class="pattern-icon">🧩</div>
+                <div>
+                    <h1>Sigue el patrón</h1>
+                    <p>Observa y encuentra la siguiente respuesta</p>
+                </div>
+            </div>
+
+            <div class="score-box">
+                ⭐ Puntaje: <span id="score">0</span>
+            </div>
+
+            <div class="pattern-card">
+                <p class="hint">Completa la secuencia:</p>
+
+                <div class="sequence" id="sequence"></div>
+
+                <div class="question-mark">?</div>
+
+                <div class="answers" id="answers"></div>
+            </div>
+
+            <p class="message" id="message">
+                Mira el patrón con calma 😊
+            </p>
+
+            <button class="next-btn" id="nextBtn">
+      Siguiente patrón 🚀
+    </button>
+
+        </section>
+
+    </main>
+
+    <audio id="successSound" src="./sonidos/correcto.wav"></audio>
+    <audio id="wrongSound" src="./sonidos/incorrecto.wav"></audio>
+    <audio id="clickSound" src="./imagenes/sonidos/pop.mp3"></audio>
+    <audio id="winSound" src="./sonidos/ganador.mp3"></audio>
+    <audio id="bubblesSound" src="./sonidos/burbujas.mp3"></audio>
+
+    <script src="./js/juego-patron.js"></script>
+
+</body>
+
+</html>

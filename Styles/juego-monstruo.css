@@ -1,0 +1,876 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.game {
+    width: min(100vw, 430px);
+    min-height: 100dvh;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #5bd3ff;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    min-height: 100dvh;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-btn {
+    align-self: flex-start;
+    padding: 10px 16px;
+    background: linear-gradient(180deg, #b56cff, #7335e8);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: background .2s ease, transform .2s ease, filter .2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    margin-bottom: 16px;
+}
+
+.back-btn:hover {
+    filter: brightness(1.1);
+    transform: translateX(-2px);
+}
+
+.back-btn:active {
+    transform: scale(.95);
+}
+
+.header {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .78);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .15), inset 0 0 18px rgba(255, 255, 255, .3);
+}
+
+.monster-head {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    background: linear-gradient(180deg, #c38aff, #7b35ef);
+    box-shadow: inset 0 5px 10px rgba(255, 255, 255, .35), 0 8px 16px rgba(0, 0, 0, .2);
+    animation: monsterFloat 4s ease-in-out infinite;
+}
+
+@keyframes monsterFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.header h1 {
+    color: #f36b13;
+    font-size: 1.45rem;
+    font-weight: 900;
+    text-shadow: 0 3px 0 white;
+}
+
+.header p {
+    margin-top: 5px;
+    color: #7b35ef;
+    font-size: .88rem;
+    font-weight: 800;
+}
+
+.score-box {
+    margin-top: 16px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(98, 45, 190, .35);
+}
+
+.monster-card {
+    width: 100%;
+    margin-top: 20px;
+    flex: 1;
+    border-radius: 34px;
+    background: rgba(255, 245, 216, .86);
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .16), inset 0 0 24px rgba(255, 255, 255, .4);
+}
+
+.monster {
+    width: 100%;
+    border-radius: 30px;
+    padding: 18px 14px;
+    text-align: center;
+    background: linear-gradient(180deg, #ffeaa0, #ffd15b);
+    box-shadow: inset 0 6px 12px rgba(255, 255, 255, .35), 0 10px 18px rgba(0, 0, 0, .14);
+    transition: transform .25s ease;
+}
+
+.monster.happy {
+    animation: monsterHappy 0.8s ease, monsterFlash 0.6s ease;
+}
+
+@keyframes monsterHappy {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.15) rotate(-8deg);
+    }
+    50% {
+        transform: scale(1.12) rotate(8deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes monsterFlash {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.4) drop-shadow(0 0 20px #ffd93d);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+.monster.sad {
+    animation: monsterSad .6s ease;
+}
+
+@keyframes monsterSad {
+    0%,
+    100% {
+        transform: translateX(0) scale(1);
+    }
+    15% {
+        transform: translateX(-12px) scale(0.98);
+    }
+    30% {
+        transform: translateX(12px) scale(0.98);
+    }
+    45% {
+        transform: translateX(-8px) scale(0.97);
+    }
+    60% {
+        transform: translateX(8px) scale(0.97);
+    }
+    75% {
+        transform: translateX(-4px) scale(0.98);
+    }
+}
+
+.monster-face {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #c38aff, #7b35ef);
+    box-shadow: inset 0 5px 10px rgba(255, 255, 255, .35), 0 8px 16px rgba(0, 0, 0, .2);
+}
+
+.monster p {
+    color: #142b78;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.monster h2 {
+    margin-top: 8px;
+    color: #ff6f00;
+    font-size: 3.4rem;
+    font-weight: 900;
+}
+
+.foods {
+    width: 100%;
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.food {
+    min-height: 120px;
+    border: none;
+    border-radius: 28px;
+    background: linear-gradient(180deg, #ffffff, #eaf8ff);
+    color: #142b78;
+    font-size: 1.8rem;
+    font-weight: 900;
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .18), inset 0 5px 10px rgba(255, 255, 255, .7);
+    transition: transform .2s ease;
+    animation: foodFloat 5s ease-in-out infinite;
+    touch-action: none;
+}
+
+.food:nth-child(1) {
+    background: linear-gradient(180deg, #8dffb2, #39c95d);
+    color: white;
+}
+
+.food:nth-child(2) {
+    background: linear-gradient(180deg, #7ed0ff, #318df4);
+    color: white;
+    animation-delay: .4s;
+}
+
+.food:nth-child(3) {
+    background: linear-gradient(180deg, #ffd46b, #ff952d);
+    color: white;
+    animation-delay: .8s;
+}
+
+.food:nth-child(4) {
+    background: linear-gradient(180deg, #c38aff, #7b35ef);
+    color: white;
+    animation-delay: 1.2s;
+}
+
+.food span {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+.food.dragging {
+    opacity: .85;
+    transform: scale(1.08);
+    z-index: 50;
+    position: relative;
+}
+
+.food.wrong {
+    animation: wrongShake .45s ease;
+}
+
+@keyframes foodFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-7px) rotate(1deg);
+    }
+}
+
+@keyframes wrongShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-8px);
+    }
+    50% {
+        transform: translateX(8px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.message {
+    margin-top: 16px;
+    min-height: 28px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.next-btn {
+    margin-top: 10px;
+    width: 88%;
+    max-width: 330px;
+    border: none;
+    border-radius: 28px;
+    padding: 15px 18px;
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 900;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .22);
+    display: none;
+}
+
+.next-btn.show {
+    display: block;
+}
+
+.happy-star {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ffd83d;
+    clip-path: polygon( 50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: drop-shadow(0 0 8px #ffd83d);
+    pointer-events: none;
+    animation: happyStarMove .9s ease-out forwards;
+}
+
+@keyframes happyStarMove {
+    0% {
+        transform: translate(0, 0) scale(.3) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.5) rotate(220deg);
+        opacity: 0;
+    }
+}
+
+.sad-particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, #7ce7ff, #00bfff);
+    box-shadow: 0 0 14px #7ce7ff;
+    pointer-events: none;
+    animation: sadBoom .9s ease-out forwards;
+}
+
+@keyframes sadBoom {
+    0% {
+        transform: translate(0, 0) scale(.3);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+
+/* Móvil pequeño (hasta 390px) */
+@media (max-width: 390px) {
+    .content {
+        padding: 16px 12px 20px;
+    }
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+    .header {
+        padding: 14px;
+        border-radius: 24px;
+        margin-top: 14px;
+        gap: 12px;
+    }
+    .header h1 {
+        font-size: 1.25rem;
+    }
+    .header p {
+        font-size: 0.8rem;
+    }
+    .monster-head {
+        width: 66px;
+        height: 66px;
+        font-size: 2.7rem;
+    }
+    .score-box {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        margin-top: 14px;
+    }
+    .monster-card {
+        padding: 18px 14px;
+        margin-top: 18px;
+        border-radius: 28px;
+    }
+    .monster {
+        padding: 16px 14px;
+        border-radius: 24px;
+    }
+    .monster-face {
+        width: 88px;
+        height: 88px;
+    }
+    .monster p {
+        font-size: 0.9rem;
+    }
+    .monster h2 {
+        font-size: 2.8rem;
+        margin-top: 8px;
+    }
+    .foods {
+        margin-top: 18px;
+        gap: 12px;
+    }
+    .food {
+        min-height: 105px;
+        font-size: 1.5rem;
+        border-radius: 24px;
+    }
+    .food span {
+        font-size: 1.9rem;
+        margin-bottom: 4px;
+    }
+    .message {
+        font-size: 0.95rem;
+        margin-top: 14px;
+    }
+    .next-btn {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        max-width: 280px;
+        margin-top: 12px;
+    }
+}
+
+/* Móvil mediano (391px - 500px) */
+@media (min-width: 391px) and (max-width: 500px) {
+    .content {
+        padding: 18px 14px 24px;
+    }
+    .back-btn {
+        padding: 9px 14px;
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+    }
+    .header {
+        padding: 15px;
+        border-radius: 26px;
+        margin-top: 15px;
+        gap: 14px;
+    }
+    .header h1 {
+        font-size: 1.35rem;
+    }
+    .header p {
+        font-size: 0.85rem;
+    }
+    .monster-head {
+        width: 72px;
+        height: 72px;
+        font-size: 3rem;
+    }
+    .score-box {
+        padding: 11px 22px;
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    .monster-card {
+        padding: 20px 16px;
+        margin-top: 20px;
+        border-radius: 30px;
+    }
+    .monster {
+        padding: 18px 16px;
+        border-radius: 26px;
+    }
+    .monster-face {
+        width: 92px;
+        height: 92px;
+    }
+    .monster p {
+        font-size: 0.95rem;
+    }
+    .monster h2 {
+        font-size: 3rem;
+        margin-top: 9px;
+    }
+    .foods {
+        margin-top: 20px;
+        gap: 14px;
+    }
+    .food {
+        min-height: 112px;
+        font-size: 1.6rem;
+        border-radius: 26px;
+    }
+    .food span {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+    .message {
+        font-size: 0.98rem;
+        margin-top: 16px;
+    }
+    .next-btn {
+        padding: 13px 17px;
+        font-size: 0.95rem;
+        max-width: 300px;
+        margin-top: 13px;
+    }
+}
+
+/* iPad pequeño (501px - 768px) */
+@media (min-width: 501px) and (max-width: 768px) {
+    .game {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 28px 28px 36px;
+    }
+    .back-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+    }
+    .header {
+        padding: 18px;
+        border-radius: 28px;
+        margin-top: 18px;
+        gap: 16px;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    .header p {
+        font-size: 0.9rem;
+    }
+    .monster-head {
+        width: 82px;
+        height: 82px;
+        font-size: 3.4rem;
+    }
+    .score-box {
+        padding: 12px 24px;
+        font-size: 1.05rem;
+        margin-top: 16px;
+    }
+    .monster-card {
+        padding: 24px 18px;
+        margin-top: 22px;
+        border-radius: 32px;
+    }
+    .monster {
+        padding: 20px 18px;
+        border-radius: 28px;
+    }
+    .monster-face {
+        width: 96px;
+        height: 96px;
+    }
+    .monster p {
+        font-size: 1rem;
+    }
+    .monster h2 {
+        font-size: 3.4rem;
+        margin-top: 10px;
+    }
+    .foods {
+        margin-top: 22px;
+        gap: 16px;
+    }
+    .food {
+        min-height: 118px;
+        font-size: 1.8rem;
+        border-radius: 28px;
+    }
+    .food span {
+        font-size: 2.2rem;
+        margin-bottom: 6px;
+    }
+    .message {
+        font-size: 1.05rem;
+        margin-top: 18px;
+    }
+    .next-btn {
+        padding: 14px 18px;
+        font-size: 1rem;
+        max-width: 330px;
+        margin-top: 14px;
+    }
+}
+
+/* iPad mediano (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
+    .game {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 32px 32px 40px;
+    }
+    .back-btn {
+        padding: 11px 17px;
+        font-size: 0.92rem;
+        margin-bottom: 20px;
+    }
+    .header {
+        padding: 20px;
+        border-radius: 30px;
+        margin-top: 20px;
+        gap: 18px;
+    }
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    .header p {
+        font-size: 0.95rem;
+    }
+    .monster-head {
+        width: 90px;
+        height: 90px;
+        font-size: 3.8rem;
+    }
+    .score-box {
+        padding: 13px 26px;
+        font-size: 1.1rem;
+        margin-top: 18px;
+    }
+    .monster-card {
+        padding: 28px 20px;
+        margin-top: 26px;
+        border-radius: 34px;
+    }
+    .monster {
+        padding: 22px 20px;
+        border-radius: 30px;
+    }
+    .monster-face {
+        width: 104px;
+        height: 104px;
+    }
+    .monster p {
+        font-size: 1.05rem;
+    }
+    .monster h2 {
+        font-size: 3.8rem;
+        margin-top: 12px;
+    }
+    .foods {
+        margin-top: 26px;
+        gap: 18px;
+    }
+    .food {
+        min-height: 126px;
+        font-size: 1.95rem;
+        border-radius: 30px;
+    }
+    .food span {
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+    }
+    .message {
+        font-size: 1.12rem;
+        margin-top: 22px;
+    }
+    .next-btn {
+        padding: 16px 20px;
+        font-size: 1.08rem;
+        max-width: 350px;
+        margin-top: 16px;
+    }
+}
+
+/* iPad grande / Pro (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .game {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 36px 36px 44px;
+    }
+    .back-btn {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        margin-bottom: 22px;
+    }
+    .header {
+        padding: 22px;
+        border-radius: 32px;
+        margin-top: 22px;
+        gap: 20px;
+    }
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    .header p {
+        font-size: 1rem;
+    }
+    .monster-head {
+        width: 98px;
+        height: 98px;
+        font-size: 4.2rem;
+    }
+    .score-box {
+        padding: 14px 28px;
+        font-size: 1.15rem;
+        margin-top: 20px;
+    }
+    .monster-card {
+        padding: 32px 22px;
+        margin-top: 30px;
+        border-radius: 36px;
+    }
+    .monster {
+        padding: 24px 22px;
+        border-radius: 32px;
+    }
+    .monster-face {
+        width: 112px;
+        height: 112px;
+    }
+    .monster p {
+        font-size: 1.1rem;
+    }
+    .monster h2 {
+        font-size: 4.2rem;
+        margin-top: 14px;
+    }
+    .foods {
+        margin-top: 30px;
+        gap: 20px;
+    }
+    .food {
+        min-height: 134px;
+        font-size: 2.1rem;
+        border-radius: 32px;
+    }
+    .food span {
+        font-size: 2.6rem;
+        margin-bottom: 10px;
+    }
+    .message {
+        font-size: 1.2rem;
+        margin-top: 26px;
+    }
+    .next-btn {
+        padding: 18px 22px;
+        font-size: 1.15rem;
+        max-width: 370px;
+        margin-top: 18px;
+    }
+}
+
+/* Web / Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .game {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 22px 16px;
+    }
+    .back-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+    .header {
+        padding: 16px;
+        border-radius: 28px;
+        margin-top: 16px;
+        gap: 14px;
+    }
+    .header h1 {
+        font-size: 1.45rem;
+    }
+    .header p {
+        font-size: 0.88rem;
+    }
+    .monster-head {
+        width: 76px;
+        height: 76px;
+        font-size: 3.2rem;
+    }
+    .score-box {
+        padding: 12px 24px;
+        font-size: 1.05rem;
+        margin-top: 16px;
+    }
+    .monster-card {
+        padding: 22px 16px;
+        margin-top: 20px;
+        border-radius: 34px;
+    }
+    .monster {
+        padding: 18px 14px;
+        border-radius: 30px;
+    }
+    .monster-face {
+        width: 90px;
+        height: 90px;
+    }
+    .monster p {
+        font-size: 1rem;
+    }
+    .monster h2 {
+        font-size: 3.4rem;
+        margin-top: 8px;
+    }
+    .foods {
+        margin-top: 26px;
+        gap: 18px;
+    }
+    .food {
+        min-height: 120px;
+        font-size: 1.8rem;
+        border-radius: 28px;
+    }
+    .food span {
+        font-size: 2.2rem;
+        margin-bottom: 6px;
+    }
+    .message {
+        font-size: 1.05rem;
+        margin-top: 16px;
+    }
+    .next-btn {
+        padding: 15px 18px;
+        font-size: 1rem;
+        max-width: 330px;
+        margin-top: 10px;
+    }
+}

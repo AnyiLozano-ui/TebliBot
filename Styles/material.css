@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.app {
+    width: min(100vw, 430px);
+    min-height: 100dvh;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #60d4ff;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    min-height: 100dvh;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.back {
+    align-self: flex-start;
+    padding: 10px 16px;
+    background: linear-gradient(180deg, #b56cff, #7335e8);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: .9rem;
+    transition: background .2s ease, transform .2s ease, filter .2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    margin-bottom: 16px;
+}
+
+.back:hover {
+    filter: brightness(1.1);
+    transform: translateX(-2px);
+}
+
+.back:active {
+    transform: scale(.95);
+}
+
+.header-card {
+    margin-top: 20px;
+    width: 100%;
+    padding: 22px;
+    border-radius: 32px;
+    background: linear-gradient(180deg, #b56cff, #7b35ef);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), inset 0 5px 12px rgba(255, 255, 255, .25);
+}
+
+.header-card img {
+    width: 92px;
+    height: 92px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .2);
+    padding: 14px;
+}
+
+.header-card h1 {
+    font-size: 2.3rem;
+    font-weight: 900;
+}
+
+.header-card p {
+    margin-top: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.info-card,
+.material-card,
+.tip-card {
+    width: 100%;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .82);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .16), inset 0 0 18px rgba(255, 255, 255, .35);
+}
+
+.info-card {
+    padding: 22px;
+    text-align: center;
+}
+
+.info-card h2 {
+    color: #142b78;
+    font-size: 1.55rem;
+    font-weight: 900;
+}
+
+.info-card p {
+    margin-top: 10px;
+    color: #333;
+    font-size: .98rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.material-card {
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icon-box {
+    min-width: 66px;
+    width: 66px;
+    height: 66px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffd46b, #ff952d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: inset 0 5px 10px rgba(255, 255, 255, .35), 0 8px 14px rgba(0, 0, 0, .16);
+}
+
+.text {
+    flex: 1;
+}
+
+.text h3 {
+    color: #7b35ef;
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.text p {
+    margin-top: 4px;
+    color: #333;
+    font-size: .86rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.download-btn {
+    padding: 12px 16px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #5cff82, #18b947);
+    color: white;
+    font-size: .85rem;
+    font-weight: 900;
+    text-decoration: none;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, .18);
+}
+
+.tip-card {
+    margin-top: auto;
+    padding: 20px;
+    color: #142b78;
+    font-size: 1.05rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.35;
+    background: rgba(255, 248, 216, .9);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 380px) {
+    .content {
+        padding: 20px 14px;
+        gap: 18px;
+    }
+    .back {
+        padding: 8px 12px;
+        font-size: .8rem;
+        margin-bottom: 12px;
+    }
+    .header-card {
+        padding: 18px;
+    }
+    .header-card img {
+        width: 78px;
+        height: 78px;
+    }
+    .header-card h1 {
+        font-size: 1.9rem;
+    }
+    .material-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .download-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Móvil mediano (381px - 500px) */
+@media (min-width: 381px) and (max-width: 500px) {
+    .content {
+        padding: 22px 16px;
+        gap: 20px;
+    }
+    .back {
+        padding: 9px 14px;
+        font-size: .85rem;
+        margin-bottom: 12px;
+    }
+    .header-card {
+        padding: 20px;
+    }
+    .header-card img {
+        width: 84px;
+        height: 84px;
+    }
+    .header-card h1 {
+        font-size: 2rem;
+    }
+    .material-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .download-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* iPad pequeño (501px - 768px) */
+@media (min-width: 501px) and (max-width: 768px) {
+    .app {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 28px 28px 36px;
+        gap: 24px;
+    }
+    .back {
+        padding: 10px 16px;
+        font-size: .9rem;
+        margin-bottom: 16px;
+    }
+    .header-card {
+        padding: 26px;
+        gap: 22px;
+    }
+    .header-card img {
+        width: 108px;
+        height: 108px;
+    }
+    .header-card h1 {
+        font-size: 2.5rem;
+    }
+    .header-card p {
+        font-size: 1.1rem;
+    }
+    .material-card {
+        padding: 22px;
+        gap: 16px;
+    }
+    .icon-box {
+        min-width: 78px;
+        width: 78px;
+        height: 78px;
+        font-size: 2.4rem;
+    }
+    .text h3 {
+        font-size: 1.4rem;
+    }
+    .text p {
+        font-size: .95rem;
+    }
+    .download-btn {
+        padding: 14px 18px;
+        font-size: .9rem;
+    }
+    .tip-card {
+        padding: 24px;
+        font-size: 1.15rem;
+    }
+}
+
+/* iPad mediano (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
+    .app {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 32px 32px 40px;
+        gap: 28px;
+    }
+    .back {
+        padding: 11px 18px;
+        font-size: .95rem;
+        margin-bottom: 18px;
+    }
+    .header-card {
+        padding: 28px;
+        gap: 24px;
+    }
+    .header-card img {
+        width: 120px;
+        height: 120px;
+    }
+    .header-card h1 {
+        font-size: 2.7rem;
+    }
+    .header-card p {
+        font-size: 1.15rem;
+    }
+    .material-card {
+        padding: 24px;
+        gap: 18px;
+    }
+    .icon-box {
+        min-width: 86px;
+        width: 86px;
+        height: 86px;
+        font-size: 2.6rem;
+    }
+    .text h3 {
+        font-size: 1.5rem;
+    }
+    .text p {
+        font-size: 1rem;
+    }
+    .download-btn {
+        padding: 15px 20px;
+        font-size: .95rem;
+    }
+    .tip-card {
+        padding: 28px;
+        font-size: 1.2rem;
+    }
+}
+
+/* iPad grande (901px - 1024px) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    .app {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 36px 36px 44px;
+        gap: 32px;
+    }
+    .back {
+        padding: 12px 20px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .header-card {
+        padding: 30px;
+        gap: 26px;
+    }
+    .header-card img {
+        width: 132px;
+        height: 132px;
+    }
+    .header-card h1 {
+        font-size: 2.9rem;
+    }
+    .header-card p {
+        font-size: 1.2rem;
+    }
+    .material-card {
+        padding: 26px;
+        gap: 20px;
+    }
+    .icon-box {
+        min-width: 94px;
+        width: 94px;
+        height: 94px;
+        font-size: 2.8rem;
+    }
+    .text h3 {
+        font-size: 1.6rem;
+    }
+    .text p {
+        font-size: 1.05rem;
+    }
+    .download-btn {
+        padding: 16px 22px;
+        font-size: 1rem;
+    }
+    .tip-card {
+        padding: 32px;
+        font-size: 1.25rem;
+    }
+}
+
+/* Web/Desktop (1025px+) */
+@media (min-width: 1025px) {
+    .app {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .content {
+        padding: 28px 18px 36px;
+        gap: 22px;
+    }
+    .back {
+        padding: 10px 16px;
+        font-size: .9rem;
+        margin-bottom: 16px;
+    }
+    .header-card {
+        padding: 22px;
+        gap: 18px;
+    }
+    .header-card img {
+        width: 92px;
+        height: 92px;
+    }
+    .header-card h1 {
+        font-size: 2.3rem;
+    }
+    .header-card p {
+        font-size: 1rem;
+    }
+    .material-card {
+        padding: 18px;
+        gap: 14px;
+    }
+    .icon-box {
+        min-width: 66px;
+        width: 66px;
+        height: 66px;
+        font-size: 2rem;
+    }
+    .text h3 {
+        font-size: 1.25rem;
+    }
+    .text p {
+        font-size: .86rem;
+    }
+    .download-btn {
+        padding: 12px 16px;
+        font-size: .85rem;
+    }
+    .tip-card {
+        padding: 20px;
+        font-size: 1.05rem;
+    }
+}
