@@ -297,23 +297,40 @@ body {
 }
 
 .intruder-card.wrong {
-    animation: wrongShake .45s ease;
-    filter: brightness(.9);
+    animation: wrongShake .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: brightness(.85) drop-shadow(0 0 12px rgba(255, 107, 107, 0.6));
 }
 
 @keyframes wrongShake {
-    0%,
-    100% {
-        transform: translateX(0);
+    0% {
+        transform: translateX(0) rotateZ(0deg);
     }
-    25% {
-        transform: translateX(-8px);
+    10% {
+        transform: translateX(-12px) rotateZ(-2deg);
+    }
+    20% {
+        transform: translateX(12px) rotateZ(2deg);
+    }
+    30% {
+        transform: translateX(-12px) rotateZ(-2deg);
+    }
+    40% {
+        transform: translateX(12px) rotateZ(2deg);
     }
     50% {
-        transform: translateX(8px);
+        transform: translateX(-8px) rotateZ(-1deg);
     }
-    75% {
-        transform: translateX(-5px);
+    60% {
+        transform: translateX(8px) rotateZ(1deg);
+    }
+    70% {
+        transform: translateX(-4px) rotateZ(-0.5deg);
+    }
+    85% {
+        transform: translateX(0) rotateZ(0deg);
+    }
+    100% {
+        transform: translateX(0) rotateZ(0deg);
     }
 }
 

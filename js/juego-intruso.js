@@ -225,28 +225,23 @@ function checkAnswer(button, isIntruder) {
             nextBtn.classList.add('show')
         }, 800)
     } else {
-        streak = 0
-        streakText.textContent = streak
-        lives--
-        livesText.textContent = lives
-
         button.classList.add('wrong')
-        message.textContent = '😅 Casi... revisa otra tarjeta'
+        message.textContent = '❌ ¡No es! Intenta otra'
 
         wrongSound.currentTime = 0
         wrongSound.play()
 
         createSadParticles(button)
 
-        if (lives <= 0) {
-            setTimeout(() => {
-                endGame()
-            }, 800)
-        } else {
-            setTimeout(() => {
-                button.classList.remove('wrong')
-            }, 700)
-        }
+        setTimeout(() => {
+            button.classList.remove('wrong')
+            button.disabled = true
+            button.style.opacity = '0.5'
+        }, 700)
+
+        setTimeout(() => {
+            message.textContent = '👀 ¡Busca bien el intruso!'
+        }, 1200)
     }
 }
 
